@@ -6,7 +6,7 @@ markmap:
   colorFreezeLevel: 6
 ---
 - Breast Cancer
-  - Prevention in High Risk Setting
+  - Prevention
     - Elevated IBIS >20%
       - IBIS 10-year >= 5%
         - [x] Annual MMG and MRI (Minimum age 30 and 25 respectively)
@@ -17,7 +17,7 @@ markmap:
     - Germline mutation
       - Management per mutation
 
-  - STAGE 0 and Noninvasive Breast Events
+  - STAGE 0
     - LCIS
       - [x] Chemoprevention with AI, Raloxifen or Tamoxifen (20mg vs babytam) IRRESPECTIVE of ER status 
      - ADH
@@ -242,7 +242,7 @@ markmap:
       - Further lines
         - [x] CHEMOTHERAPY
 
-  - Local and Regional Recurrence
+  - LR Recurrence
     - ER POSITIVE: CALOR demonstrated no benefit in re-administration of Chemotherapy
     - ER NEGATIVE: Modest benefit of rechallenge with chemotherapy
 
