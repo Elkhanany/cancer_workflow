@@ -74,6 +74,12 @@ markmap:
 
   - STAGE II
     - Premenopausal ER+ HER2-
+      - pT2 N0
+        - [x] Send Oncotype/Mammaprint (TC)
+          - [x] RS ≥26: Chemotherapy 
+          - [x] RS 16-25 : Discuss Chemotherapy (individualized benefit)
+          - [x] ≤15 or less → No Chemotherapy
+        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression [Consider NAET for larger tumors]
       - pT1 N1, pT2 N1
         - [x] For pT1c N0, consider Oncotype/Mammaprint (TC) [Consider NACT for larger tumors]
           - [x] → Chemotherapy irrespective of RS
@@ -88,6 +94,11 @@ markmap:
         - [x] ET duration for 5 years (+/- 5 years per BCI or [CTS5 Calculator](https://cts5-calculator.com/))
         - [x] Adjuvant Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
     - Postmenopausal ER+ HER2-
+      - pT2 N0
+        - [x] Send Oncotype/Mammaprint (TC)
+          - [x] RS ≥26: Chemotherapy 
+          - [x] ≤25 or less → No Chemotherapy
+        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression [Consider NAET for larger tumors]
       - pT1 N1, pT2 N1
         - [x] Perform Oncotype/Mammaprint [Consider NACT for larger tumors]
             - [x] RS ≥26: Chemotherapy
