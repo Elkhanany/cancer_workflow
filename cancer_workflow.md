@@ -39,14 +39,22 @@ markmap:
 
   - STAGE I
     - Premenopausal ER+ HER2-
-      - [x] For pT1a N0, adjuvant ET is category 2B but still discussed. Absolute benefit very small, but consider for 2ry chemoprevention. 
-      - [x] For pT1c N0, consider Oncotype/Mammaprint (TC)
-        - [x] RS ≥26: Chemotherapy 
-        - [x] RS 16-25 : Discuss Chemotherapy (individualized benefit)
-        - [x] ≤15 or less → No Chemotherapy
-        - *Per TAILOR Rx*
-      - [x] Adjuvant ET (AI versus SERM) [Ovarian Suppression added benefit is small]
-      - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
+      - [x] pT1a N0
+        - [x] Adjuvant ET is category 2B but still discussed. Absolute DFS and BCSS benefit very small
+        - [x] Can be considered for 2ry chemoprevention.
+      - [x] pT1b cN0 Grade I
+        - [x] TAILORx did not include this population. Can consider MammaPrint on case by case basis
+        - [x] Adjuvant ET (AI versus SERM). OFS benefit is small
+        - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
+      - [x] pT1b cN0 Grade II/III and pT1c cN0
+        - [x] Consider Oncotype / Mammaprint (TC) **TAILORx** and **MINDACT**
+          - [x] RS ≥26: Chemotherapy 
+          - [x] RS 16-25 : Discuss Chemotherapy (individualized benefit)
+          - [x] ≤15 or less → No Chemotherapy
+        - [x] Adjuvant ET (AI versus SERM). OFS benefit is small
+        - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
+
+
     - Postmenopausal ER+ HER2-
       - [x] For pT1a N0, adjuvant ET is category 2B but still discussed. Absolute benefit very small, but consider for 2ry chemoprevention. 
       - [x] For pT1c N0, consider Oncotype/Mammaprint (TC)
@@ -60,14 +68,14 @@ markmap:
       - [x] For pT1b and pT1c, Upfront surgery then adjuvant Taxol x12 weeks and Herceptin q3Wk x 1 year. *APT regimen*
       - [x] Adjuvant Herceptin to complete 1 year
       - [x] In age 75+, can consider single agent Herceptin *RESPECT 2020*
-    - ER+ HER2+
+    - Triple Positive ER+ HER2+
       - [x] For pT1a N0, adjuvant Herceptin is rarely used since  category 2B. Can be considered if multifocal disease. Adjuvant ET is category 2B but still discussed. Absolute benefit very small, but consider for 2ry chemoprevention. 
       - [x] For pT1b and pT1c, Upfront surgery then adjuvant Taxol x12 weeks and Herceptin q3Wk x 1 year. *APT regimen*
       - [x] Adjuvant Herceptin to complete 1 year
       - [x] In age 75+, can consider single agent Herceptin *RESPECT 2020*
       - [x] Adjuvant ET (AI versus SERM)
       - [x] Adjuvant Neratinib benefit is likely very small. 
-    - ER- HER2-
+    - TNBC ER- HER2-
       - [x] For cT1a N0, upfront surgery. Benefit of adjuvant Chemotherapy is very minimal
       - [x] Definitive Surgery followed by Chemotherapy
         - [x] Adjuvant Docetaxel Cytoxan x 4 CYCLES 
