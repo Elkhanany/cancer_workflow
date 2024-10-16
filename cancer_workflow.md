@@ -21,19 +21,21 @@ markmap:
   - STAGE 0
     - LCIS
       - [x] Most require excisional biopsy
-      - [x] Chemoprevention with Tamoxifen (20mg vs babytam) or Raloxifen or AI (if intolerant to SERM)
+      - [x] Chemoprevention with Tamoxifen (20mg vs babytam per **TAM001**)
+      - [x] Raloxifen or AI can be used (if intolerant to SERM)
     - ADH
       - [x] Some require excisional biopsy
-      - [x] Chemoprevention with Tamoxifen (20mg vs babytam) or Raloxifen or AI (if intolerant to SERM)
+      - [x] Chemoprevention with Tamoxifen (20mg vs babytam per **TAM001**)
+      - [x] Raloxifen or AI can be used (if intolerant to SERM)
     - DCIS
-      - ER+ve
-        - [x] Mastectomy VERSUS BCS → RT → ET
-        - [x] In elderly, can do either RT vs ET. 
+      - ER +ve
+        - [x] Surgical Excision is strongly recommended. Mastectomy VERSUS BCT
         - [x] Oncotype DCIS or DecisionRT post BCS can omit RT if low score
-        - [x] Chemoprevention ET for ipsi- and contra-lateral risk reduction
-        - [x] 2ry Chemoprevention with Tamoxifen (0mg vs 10mg daily) or AI (if intolerant to SERM)
-      - ER-ve
-        - [x] Mastectomy VERSUS BCS → RT
+        - [x] Chemoprevention with Tamoxifen (20mg vs babytam per **TAM001**)
+        - [x] Raloxifen or AI can be used (if intolerant to SERM per **NSABP B-35**)
+      - ER -ve
+        - [x] Surgical Excision is strongly recommended. Mastectomy VERSUS BCT
+        - [x] No distinct benefit in chemoprevention
 
   - STAGE I
     - Premenopausal ER+ HER2-
