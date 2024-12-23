@@ -6,7 +6,7 @@ markmap:
   colorFreezeLevel: 6
 ---
 - Breast Cancer
-  - Prevention
+  - Prevention in High Risk 
     - Elevated IBIS >20%
       - IBIS 10-year >= 5%
         - [x] Annual MMG and MRI (Minimum age 30 and 25 respectively)
@@ -18,7 +18,7 @@ markmap:
     - Germline mutation
       - Management per mutation. [Myriad Gene Table](https://myriad.com/gene-table/)
 
-  - STAGE 0
+  - Premalignant and High Risk Conditions
     - LCIS
       - [x] Most require excisional biopsy
       - [x] Chemoprevention with Tamoxifen (20mg vs babytam per **TAM001**)
@@ -37,12 +37,13 @@ markmap:
         - [x] Surgical Excision is strongly recommended. Mastectomy VERSUS BCT
         - [x] No distinct benefit in chemoprevention
 
-  - STAGE I
-    - Premenopausal ER+ HER2-
-      - [x] pT1a N0
+  
+  - Premenopausal ER+ HER2-
+    - STAGE I
+      - pT1a N0
         - [x] Adjuvant ET is category 2B but still discussed. Absolute DFS and BCSS benefit very small
         - [x] Can be considered for 2ry chemoprevention.
-      - [x] pT1b cN0 Grade I
+      - pT1b cN0 Grade I
         - [x] TAILORx did not include this population. Can consider MammaPrint on case by case basis
         - [x] Adjuvant ET (AI versus SERM). OFS benefit is small
         - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
@@ -53,37 +54,7 @@ markmap:
           - [x] ≤15 or less → No Chemotherapy
         - [x] Adjuvant ET (AI versus SERM). OFS benefit is small
         - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
-
-
-    - Postmenopausal ER+ HER2-
-      - [x] For pT1a N0, adjuvant ET is category 2B but still discussed. Absolute benefit very small, but consider for 2ry chemoprevention. 
-      - [x] For pT1c N0, consider Oncotype/Mammaprint (TC)
-        - [x] RS ≥26: Chemotherapy 
-        - [x] ≤25 or less → No Chemotherapy
-        - *Per TAILOR Rx*
-      - [x] Adjuvant ET (AI versus SERM)
-      - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
-    - ER- HER2+
-      - [x] For pT1a N0, adjuvant Herceptin is rarely used since  category 2B. Can be considered if multifocal disease. 
-      - [x] For pT1b and pT1c, Upfront surgery then adjuvant Taxol x12 weeks and Herceptin q3Wk x 1 year. *APT regimen*
-      - [x] Adjuvant Herceptin to complete 1 year
-      - [x] In age 75+, can consider single agent Herceptin *RESPECT 2020*
-    - Triple Positive ER+ HER2+
-      - [x] For pT1a N0, adjuvant Herceptin is rarely used since  category 2B. Can be considered if multifocal disease. Adjuvant ET is category 2B but still discussed. Absolute benefit very small, but consider for 2ry chemoprevention. 
-      - [x] For pT1b and pT1c, Upfront surgery then adjuvant Taxol x12 weeks and Herceptin q3Wk x 1 year. *APT regimen*
-      - [x] Adjuvant Herceptin to complete 1 year
-      - [x] In age 75+, can consider single agent Herceptin *RESPECT 2020*
-      - [x] Adjuvant ET (AI versus SERM)
-      - [x] Adjuvant Neratinib benefit is likely very small. 
-    - TNBC ER- HER2-
-      - [x] For cT1a N0, upfront surgery. Benefit of adjuvant Chemotherapy is very minimal
-      - [x] Definitive Surgery followed by Chemotherapy
-        - [x] Adjuvant Docetaxel Cytoxan x 4 CYCLES 
-        - [x] Added benefit of ddAC/T over TC is likely very small *ABC Analysis 2024*
-
-
-  - STAGE II
-    - Premenopausal ER+ HER2-
+    - STAGE II
       - pT2 N0
         - [x] Send Oncotype/Mammaprint (TC)
           - [x] RS ≥26: Chemotherapy 
@@ -103,89 +74,12 @@ markmap:
         - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression (Plan for NAET for good biology LumA)
         - [x] ET duration for 5 years (+/- 5 years per BCI or [CTS5 Calculator](https://cts5-calculator.com/))
         - [x] Adjuvant Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
-    - Postmenopausal ER+ HER2-
-      - pT2 N0
-        - [x] Send Oncotype/Mammaprint (TC)
-          - [x] RS ≥26: Chemotherapy 
-          - [x] ≤25 or less → No Chemotherapy
-        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression [Consider NAET for larger tumors]
-      - pT1 N1, pT2 N1
-        - [x] Perform Oncotype/Mammaprint [Consider NACT for larger tumors]
-            - [x] RS ≥26: Chemotherapy
-            - [x] ≤25 or less → No Chemotherapy
-        - [x] Adjuvant ET (AI versus SERM) [Consider NAET for larger tumors]
-        - [x] ET duration for 5 years (+/- 5 years per BCI or [CTS5 Calculator](https://cts5-calculator.com/))
-        - [x] Adjuvant Abemaciclib in high risk patients with N1 and Grade III
-        - [x] Adjuvant Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
-      - pT3 N0
-        - [x] ddAC/T vs TC [GEP NOT validated] (Plan for NACT)
-        - [x] Adjuvant ET (AI versus SERM) (Plan for NAET for good biology LumA)
-        - [x] ET duration for 5 years (+/- 5 years per BCI or [CTS5 Calculator](https://cts5-calculator.com/))
-        - [x] Adjuvant Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
-    - ER- HER2+
-        - Neoadjuvant Therapy
-          - [x] Taxol (Weekly) HP followed by ddAC (Better tolerated than TCHP)
-          - [x] Taxotere, Carboplatin, HP *TRYPHEMA* (If intolerant to Anthracyclins)
-        - Post Neoadjuvant Therapy
-          - [x] If no pCR, TDM-1 to complete a year
-          - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year
-    - ER+ HER2+
-        - Neoadjuvant Therapy
-          - [x] Taxol (Weekly) HP followed by ddAC (Better tolerated than TCHP)
-          - [x] Taxotere, Carboplatin, HP *TRYPHEMA* (If intolerant to Anthracyclins)
-        - Post Neoadjuvant Therapy
-          - [x] If no pCR, TDM-1 to complete a year
-          - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year
-        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression if premenopausal
-        - [x] Consider Adjuvant Neratinib for ypN+ (Benefit after receiving Kadcyla is unknown) 
-    - ER- HER2-
-        - Neoadjuvant Therapy
-          - [x] Taxol (Weekly) followed by ddAC *ABC*
-          - [x] Taxol Carboplatin (Weekly) Pembro then dd Pembro *KEYNOTE-522*
-        - Post Neoadjuvant Therapy
-          - [x] Adjuvant Pembrolizumab to complete a year
-          - Post Neoadjuvant Therapy
-            - [x] If no pCR, Capecitabine 1000 mg/m2 D1-14 of 21D CYCLE x 8 CYCLES *CREATE-x*
-            - [x] If no pCR, gBRCA1/2 (and PALB2), adjuvant Olaparib *OlympiA*
-            - [x] For high risk patients with pCR, consider adjuvant capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES *SYSUCC-001*
-
-  - STAGE III
-    - Premenopausal ER+ HER2-
+    - STAGE III
         - [x] ddAC/T [TC underperform] [GEP NOT validated] [Consider NACT]
         - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression for 7 to 10 years
         - [x] ABEMACICLIB in high risk patient: pN2/3 OR pN1 with either T3 OR Grade III
         - [x] OLAPARIB in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
-    - Postmenopausal ER+ HER2-
-        - [x] ddAC/T [TC underperform] [GEP NOT validated] [Consider NACT]
-        - [x] Adjuvant ET (AI versus SERM) for 7 to 10 years
-        - [x] ABEMACICLIB in high risk patients with T3 pN1, pN2, pN3
-        - [x] OLAPARIB in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
-    - ER- HER2+
-         - Neoadjuvant Regimens include
-           - [x] Taxol (Weekly) HP followed by ddAC
-           - [x] Taxotere, Carboplatin, HP (TRYPHEMA)
-        - Post NACT
-          - [x] If no pCR, TDM-1 to complete a year
-          - [x] If pCR, HP to complete a year
-    - ER+ HER2+
-         - Neoadjuvant Regimens include
-           - [x] Taxol (Weekly) HP followed by ddAC
-           - [x] Taxotere, Carboplatin, HP (TRYPHEMA)
-         - Post NACT
-           - [x] If no pCR, TDM-1 to complete a year
-           - [x] If pCR, HP to complete a year
-         - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression
-         - [x] Adjuvant Neratinib
-    - ER- HER2-
-        - [x] Taxol Carboplatin (Weekly) Pembro then dd Pembro (KN522)
-        - Post NACT
-          - [x] Adjuvant Pembrolizumab 200mg IV q21D post KN522 for 9 CYCLES
-          - [x] If no pCR, Capecitabine 1250 mg/m2 D1-14 of 21D CYCLE x 8 CYCLES (CREATE-x)
-          - [x] If pCR, Capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES (SYSUCC-001)
-
-
-  - STAGE IV
-    - Premenopausal ER+ HER2-
+    - STAGE IV
       - 1st line
         - [x] OFS+AI+CDK4/6 (Kisqali per MONALEESA-7)
       - 2nd line
@@ -203,7 +97,46 @@ markmap:
         - [x] Enhertu (IHC 1+ or 2+ with Gp5) OR Chemotherapy
       - Further lines
         - [x] CHEMOTHERAPY
-    - Postmenopausal ER+ HER2-
+  - Postmenopausal ER+ HER2-
+    - STAGE I
+      - pT1a N0
+        - [x] Adjuvant ET is category 2B but still discussed. Absolute DFS and BCSS benefit very small
+        - [x] Can be considered for 2ry chemoprevention.
+      - pT1b cN0 Grade I
+        - [x] TAILORx did not include this population. Can consider MammaPrint on case by case basis
+        - [x] Adjuvant ET (AI versus SERM). OFS benefit is small
+        - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
+      - [x] pT1b cN0 Grade II/III and pT1c cN0
+        - [x] Consider Oncotype / Mammaprint (TC) **TAILORx** and **MINDACT**
+          - [x] RS ≥26 → Chemotherapy 
+          - [x] ≤25 or less → No Chemotherapy
+        - [x] Adjuvant ET (AI versus SERM).
+        - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
+    - STAGE II
+      - pT2 N0
+        - [x] Consider Oncotype / Mammaprint (TC) **TAILORx** and **MINDACT**
+          - [x] RS ≥26: Chemotherapy 
+          - [x] ≤25 or less → No Chemotherapy
+        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression [Consider NAET for larger tumors]
+      - pT1 N1, pT2 N1
+        - [x] Perform Oncotype/Mammaprint [Consider NACT for larger tumors]
+            - [x] RS ≥26: Chemotherapy
+            - [x] ≤25 or less → No Chemotherapy
+        - [x] Adjuvant ET (AI versus SERM) [Consider NAET for larger tumors]
+        - [x] ET duration for 5 years (+/- 5 years per BCI or [CTS5 Calculator](https://cts5-calculator.com/))
+        - [x] Adjuvant Abemaciclib in high risk patients with N1 and Grade III
+        - [x] Adjuvant Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
+      - pT3 N0
+        - [x] ddAC/T vs TC [GEP NOT validated] (Plan for NACT)
+        - [x] Adjuvant ET (AI versus SERM) (Plan for NAET for good biology LumA)
+        - [x] ET duration for 5 years (+/- 5 years per BCI or [CTS5 Calculator](https://cts5-calculator.com/))
+        - [x] Adjuvant Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
+    - STAGE III
+        - [x] ddAC/T [TC underperform] [GEP NOT validated] [Consider NACT]
+        - [x] Adjuvant ET (AI versus SERM) for 7 to 10 years
+        - [x] ABEMACICLIB in high risk patients with T3 pN1, pN2, pN3
+        - [x] OLAPARIB in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
+    - STAGE IV
       - 1st line
         - [x] AI+CDK4/6. Consider holding CDK if low volume.
       - 2nd line
@@ -222,18 +155,67 @@ markmap:
         - [x] Enhertu (IHC 1+ or 2+ with Gp5) OR Chemotherapy
       - Further lines
         - [x] CHEMOTHERAPY
-
-    - ER- HER2+
+  
+   
+  - ER- HER2+
+    - STAGE I
+      - [x] For pT1a N0, adjuvant Herceptin is rarely used since  category 2B. Can be considered if multifocal disease. 
+      - [x] For pT1b and pT1c, Upfront surgery then adjuvant Taxol x12 weeks and Herceptin q3Wk x 1 year. *APT regimen*
+      - [x] Adjuvant Herceptin to complete 1 year
+      - [x] In age 75+, can consider single agent Herceptin *RESPECT 2020*
+    - STAGE II
+      - Neoadjuvant Therapy
+        - [x] Taxol (Weekly) HP followed by ddAC (Better tolerated than TCHP)
+        - [x] Taxotere, Carboplatin, HP *TRYPHEMA* (If intolerant to Anthracyclins)
+      - Post Neoadjuvant Therapy
+        - [x] If no pCR, TDM-1 to complete a year
+        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year
+    - STAGE III
+        - Neoadjuvant Regimens include
+          - [x] Taxol (Weekly) HP followed by ddAC
+          - [x] Taxotere, Carboplatin, HP (TRYPHEMA)
+        - Post NACT
+          - [x] If no pCR, TDM-1 to complete a year
+          - [x] If pCR, HP to complete a year
+    - STAGE IV
       - 1st line
         - [x] Taxane/HP (vs Tr/HP) → maintenance HP
       - 2nd line
         - [x] Enhertu vs Cape/Tucatinib/Herceptin
       - 3rd line
-        - [x] Enhertu vs Cape/Tucatinib/Herceptin vs Margetuximab vs Cape/Neratinib
-      - Further lines
-        - [x] CHEMOTHERAPY
+       - [x] Enhertu vs Cape/Tucatinib/Herceptin vs Margetuximab vs Cape/Neratinib
+     - Further lines
+      - [x] CHEMOTHERAPY
 
-    - ER+ HER2+
+
+
+  - Triple Positive ER+ HER2+
+    - STAGE I
+      - [x] For pT1a N0, adjuvant Herceptin is rarely used since  category 2B. Can be considered if multifocal disease. Adjuvant ET is category 2B but still discussed. Absolute benefit very small, but consider for 2ry chemoprevention. 
+      - [x] For pT1b and pT1c, Upfront surgery then adjuvant Taxol x12 weeks and Herceptin q3Wk x 1 year. *APT regimen*
+      - [x] Adjuvant Herceptin to complete 1 year
+      - [x] In age 75+, can consider single agent Herceptin *RESPECT 2020*
+      - [x] Adjuvant ET (AI versus SERM)
+      - [x] Adjuvant Neratinib benefit is likely very small. 
+    - STAGE II
+      - Neoadjuvant Therapy
+      - [x] Taxol (Weekly) HP followed by ddAC (Better tolerated than TCHP)
+      - [x] Taxotere, Carboplatin, HP *TRYPHEMA* (If intolerant to Anthracyclins)
+    - Post Neoadjuvant Therapy
+      - [x] If no pCR, TDM-1 to complete a year
+      - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year
+    - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression if premenopausal
+    - [x] Consider Adjuvant Neratinib for ypN+ (Benefit after receiving Kadcyla is unknown) 
+    - STAGE III
+      - Neoadjuvant Regimens include
+        - [x] Taxol (Weekly) HP followed by ddAC
+        - [x] Taxotere, Carboplatin, HP (TRYPHEMA)
+      - Post NACT
+        - [x] If no pCR, TDM-1 to complete a year
+        - [x] If pCR, HP to complete a year
+      - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression
+      - [x] Adjuvant Neratinib
+    - STAGE IV
       - 1st line
         - [x] Taxane / HP (vs Tr/HP) → maintenance HP + ET (OFS/AI vs AI)
       - 2nd line
@@ -243,7 +225,31 @@ markmap:
       - Further lines
         - [x] CHEMOTHERAPY
 
-    - ER- HER2-
+    
+
+  - TNBC ER- HER2-
+    - STAGE I
+      - [x] For cT1a N0, upfront surgery. Benefit of adjuvant Chemotherapy is very minimal
+      - [x] Definitive Surgery followed by Chemotherapy
+        - [x] Adjuvant Docetaxel Cytoxan x 4 CYCLES 
+        - [x] Added benefit of ddAC/T over TC is likely very small *ABC Analysis 2024*
+    - STAGE II
+      - Neoadjuvant Therapy
+        - [x] Taxol (Weekly) followed by ddAC *ABC*
+        - [x] Taxol Carboplatin (Weekly) Pembro then dd Pembro *KEYNOTE-522*
+      - Post Neoadjuvant Therapy
+        - [x] Adjuvant Pembrolizumab to complete a year
+        - Post Neoadjuvant Therapy
+          - [x] If no pCR, Capecitabine 1000 mg/m2 D1-14 of 21D CYCLE x 8 CYCLES *CREATE-x*
+          - [x] If no pCR, gBRCA1/2 (and PALB2), adjuvant Olaparib *OlympiA*
+          - [x] For high risk patients with pCR, consider adjuvant capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES **SYSUCC-001**
+    - STAGE III
+        - [x] Taxol Carboplatin (Weekly) Pembro then dd Pembro (KN522)
+        - Post NACT
+          - [x] Adjuvant Pembrolizumab 200mg IV q21D post KN522 for 9 CYCLES
+          - [x] If no pCR, Capecitabine 1250 mg/m2 D1-14 of 21D CYCLE x 8 CYCLES (CREATE-x)
+          - [x] If pCR, Capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES (SYSUCC-001)
+    - STAGE IV
       - 1st line
         - [x] Pembro (22C3 +ve) +/- Taxol/Abraxane/CarboGem
         - [x] Olaparib/Talzaporib (germline BRCA1/BRCA2 OR per TBCRC 048 gPALB2 OR somatic BRCA2)
@@ -262,31 +268,3 @@ markmap:
         - [x] Consider Halaven if progression on two prior chemotherapy agents
       - Further lines
         - [x] CHEMOTHERAPY
-
-  - LR Recurrence
-    - ER POSITIVE: CALOR demonstrated no benefit in re-administration of Chemotherapy
-    - ER NEGATIVE: Modest benefit of rechallenge with chemotherapy
-
-  - Specific Situations
-    - Encapsulated Papillary → managed as DCIS
-    - Tubular, Mucinous and Papillary → Adj Endocrine Rx. Add Chemo if pN1a-3
-    - Adenoid Cystic TNBC is associated with favorable prognosis and might not need chemotherapy unless N+ disease
-    - Male BC → 
-      - ER+ 
-        - [x] Definitive Surgery → TAM (NOT AI alone) Can use AI with GnRH
-      - ER-ve 
-        - [x] Definitive Surgery → Chemotherapy (ddAC/T)
-      - Advanced ER+
-        - [x] CDK4/6 + either TAM OR AI/GnRH agonist → Faslodex as 2nd line
-    - Capecitabine
-      - [x] STANDARD 1250mg/m2 D1-14 of 21D CYCLE * 8 CYCLES. METRONOMIC 650mg/m2 D1-28 of 28D CYCLE *12 CYCLES
-    - NACT Carbo/Txl/Pembro might require Neupogen support per weekly basis
-    - Per early HERA trials
-      - [x] EF drop is LVEF ≤ 16% drop from baseline OR ≤ 40%. TTE q3Months while on HP
-    - HP and TDM1 are given to complete 1 full year of AntiHER2 therapy
-    - Per EBCTG
-      - [x] ER3+ 10% to 100% all derive benefit
-      - [x] ER- PR+ derive no benefit
-    - Adriamycin is recommended in N2/N3 ER+ OR TNBC
-    - Can Skip RT If >65 ER+ pN0 s/p Mastectomy
-    - Need postop RT if pT3 or pN+
