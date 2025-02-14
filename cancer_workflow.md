@@ -248,21 +248,27 @@ markmap:
 
 
     - STAGE II
-      - Neoadjuvant Therapy
-        - [x] Taxol (Weekly) HP followed by ddAC (Better tolerated than TCHP)
-        - [x] Taxotere, Carboplatin, HP *TRYPHEMA* (If intolerant to Anthracyclins)
-      - Post Neoadjuvant Therapy
-        - [x] If no pCR, TDM-1 to complete a year
-        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year
+      - Receiving NACT
+        - [x] Taxotere, Carboplatin, HP **TRYPHEMA**
+        - [x] Weekly Taxol, HP followed by ddAC **NOAH**
+        - [x] For poor ECOG, Can consider TDM1+Pertuzumab **KRISTINE**
+      - Post Receiving NACT
+        - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
+      - Adjuvant Therapy without NACT
+        - [x] Adjuvant Taxotere, Carboplatin, HP **APHINITY**
+        - [x] If small N0 T2 <30mm, can consider adjuvant Paclitaxel and Herceptin **APT**
 
 
     - STAGE III
-        - Neoadjuvant Regimens include
-          - [x] Taxol (Weekly) HP followed by ddAC
-          - [x] Taxotere, Carboplatin, HP (TRYPHEMA)
-        - Post NACT
-          - [x] If no pCR, TDM-1 to complete a year
-          - [x] If pCR, HP to complete a year
+      - Receiving NACT
+        - [x] Taxotere, Carboplatin, HP **TRYPHEMA**
+        - [x] Weekly Taxol, HP followed by ddAC **NOAH**
+      - Post Receiving NACT
+        - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
+      - Adjuvant Therapy without NACT
+        - [x] Adjuvant Taxotere, Carboplatin, HP **APHINITY**
 
     - STAGE IV
       - 1st line
@@ -323,25 +329,35 @@ markmap:
 
 
     - STAGE II
-      - Neoadjuvant Therapy
-      - [x] Taxol (Weekly) HP followed by ddAC (Better tolerated than TCHP)
-      - [x] Taxotere, Carboplatin, HP *TRYPHEMA* (If intolerant to Anthracyclins)
-    - Post Neoadjuvant Therapy
-      - [x] If no pCR, TDM-1 to complete a year
-      - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year
-      - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression if premenopausal
-      - [x] Consider Adjuvant Neratinib for ypN+ (Benefit after receiving Kadcyla is unknown) 
+      - Receiving NACT
+        - [x] Taxotere, Carboplatin, HP **TRYPHEMA**
+        - [x] Weekly Taxol, HP followed by ddAC **NOAH**
+        - [x] For poor ECOG, Can consider TDM1+Pertuzumab **KRISTINE** or Palbociclib+Letrozole+HP **TOUCH**
+      - Post Receiving NACT
+        - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
+        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression if premenopausal **SOFT/TEXT**
+        - [x] Consider Adjuvant Neratinib (Benefit after receiving Kadcyla is unknown) **ExteNET**
+      - Adjuvant Therapy without NACT
+        - [x] Adjuvant Taxotere, Carboplatin, HP **APHINITY**
+        - [x] If small N0 T2 <30mm, can consider adjuvant Paclitaxel and Herceptin **APT**
+        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression if premenopausal **SOFT/TEXT**
+        - [x] Consider Adjuvant Neratinib (Benefit after receiving Kadcyla is unknown) **ExteNET**
 
 
     - STAGE III
-      - Neoadjuvant Regimens include
-        - [x] Taxol (Weekly) HP followed by ddAC
-        - [x] Taxotere, Carboplatin, HP (TRYPHEMA)
-      - Post NACT
-        - [x] If no pCR, TDM-1 to complete a year
-        - [x] If pCR, HP to complete a year
-      - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression
-      - [x] Adjuvant Neratinib
+      - Receiving NACT
+       - [x] Taxotere, Carboplatin, HP **TRYPHEMA**
+       - [x] Weekly Taxol, HP followed by ddAC **NOAH**
+      - Post Receiving NACT
+        - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
+        - [x] Adjuvant AI with Ovarian Suppression if premenopausal **SOFT/TEXT**
+        - [x] Consider Adjuvant Neratinib (Benefit after receiving Kadcyla is unknown) **ExteNET**
+      - Adjuvant Therapy without NACT
+        - [x] Adjuvant Taxotere, Carboplatin, HP **APHINITY**
+        - [x] Adjuvant AI with Ovarian Suppression if premenopausal **SOFT/TEXT**
+        - [x] Adjuvant Neratinib (Benefit after receiving Kadcyla is unknown) **ExteNET**
 
 
     - STAGE IV
