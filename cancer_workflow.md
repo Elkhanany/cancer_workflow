@@ -35,7 +35,7 @@ markmap:
         - [x] Raloxifen or AI can be used (if intolerant to SERM per **NSABP B-35**)
       - ER -ve
         - [x] Surgical Excision is strongly recommended. Mastectomy VERSUS BCT
-        - [x] No distinct benefit in chemoprevention
+        - [x] No distinct benefit of ET in chemoprevention
 
   
 
@@ -50,48 +50,117 @@ markmap:
 
     - STAGE I
       - pT1a N0
-        - [x] Adjuvant ET is category 2B but still discussed. Absolute DFS and BCSS benefit very small
-        - [x] Can be considered for 2ry chemoprevention.
-      - pT1b cN0 Grade I
-        - [x] TAILORx did not include this population. Can consider MammaPrint on case by case basis
-        - [x] Adjuvant ET (AI versus SERM). OFS benefit is small
-        - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
-      - [x] pT1b cN0 Grade II/III and pT1c cN0
-        - [x] Consider Oncotype / Mammaprint (TC) **TAILORx** and **MINDACT**
-          - [x] RS ≥26: Chemotherapy 
-          - [x] RS 16-25 : Discuss Chemotherapy (individualized benefit)
-          - [x] ≤15 or less → No Chemotherapy
-        - [x] Adjuvant ET (AI versus SERM). OFS benefit is small
-        - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET is *Category 2B*. Absolute DFS and BCSS benefit 
+          very small
+          - [x] ET can be considered for 2ry chemoprevention post Lumpectomy or ipsilateral mastectomy.
+        - CHEMOTHERAPY
+          - [x] TAILORx did not include this population. 
+      - pT1b N0 Grade I
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM). OFS benefit is small
+          - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
+        - CHEMOTHERAPY
+          - [x] TAILORx did not include this population. 
+          - [x] Can consider MammaPrint on individual basis
+        - TARGETED THERAPY
+          - [x] Trials did not include this population. 
+        - BISPHOSPHONATES
+          - [x] Benefit is very small **EBCTG 2015**
+
+      - pT1b N0 Grade II/III and pT1c N0
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM). OFS benefit is small.  **SOFT/TEXT**
+          - [x] ET duration for 5 years (+/- 2 - 5 years per BCI, MP Ultralow or [CTS5 Calculator](https://cts5-calculator.com/)) **ABCSG16**
+        - CHEMOTHERAPY
+          - [x] Consider Oncotype **TAILORx**
+            - [x] RS ≥26 → Chemotherapy. (Consider ddAC/T if RS >=30) 
+            - [x] RS 16-25 → Discuss Chemotherapy (individualized benefit)
+            - [x] RS ≤15 or less → No Chemotherapy
+          - [x] Alternatively consider Mammaprint **MINDACT**
+            - [x] MPI POSITIVE (0 to 1) LOW and ULTRA LOW RISK → No Chemotherapy
+            - [x] MPI NEGATIVE (-1 to 0) High1 and High2 → Chemotherapy
+          - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is very small for Stage 1 **EBCTG 2023** & **ABC 2024**
+        - TARGETED THERAPY
+          - [x] Trials did not include this population. 
+        - BISPHOSPHONATES
+          - [x] Benefit is very small **EBCTG 2015**
 
 
     - STAGE II
       - pT2 N0
-        - [x] Send Oncotype/Mammaprint (TC)
-          - [x] RS ≥26: Chemotherapy 
-          - [x] RS 16-25 : Discuss Chemotherapy (individualized benefit)
-          - [x] ≤15 or less → No Chemotherapy
-        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression [Consider NAET for larger tumors]
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression **SOFT/TEXT**
+          - [x] ET duration for 5 years (+/- 2 - 5 years per BCI, MP Ultralow or [CTS5 Calculator](https://cts5-calculator.com/)) **ABCSG16**
+        - CHEMOTHERAPY
+          - [x] Oncotype **TAILORx**
+            - [x] RS ≥26 → Chemotherapy. (Consider ddAC/T if RS >=30) 
+            - [x] RS 16-25 → Discuss Chemotherapy (individualized benefit)
+            - [x] RS ≤15 or less → No Chemotherapy
+          - [x] Mammaprint **MINDACT**
+            - [x] MPI POSITIVE (0 to 1) LOW and ULTRA LOW RISK → No Chemotherapy
+            - [x] MPI NEGATIVE (-1 to 0) High1 and High2 → Chemotherapy
+          - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is small for N0 Stage  **EBCTG 2023** & **ABC 2024**
+        - TARGETED THERAPY
+          - [x] Ribociclib approved for T2 N0 disease with Grade III OR Grade II with elevated RS, MPI or Ki67 20% **NATALEE**
+          - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
+
+        - BISPHOSPHONATES
+          - [x] Benefit is small **EBCTG 2015**
+
+        
       - pT1 N1, pT2 N1
-        - [x] For pT1c N0, consider Oncotype/Mammaprint (TC) [Consider NACT for larger tumors]
-          - [x] → Chemotherapy irrespective of RS
-          - [x] Absolute benefit can be small, and can be offset with OFS
-        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression [Consider NAET for larger tumors]
-        - [x] ET duration for 5 years (+/- 5 years per BCI or [CTS5 Calculator](https://cts5-calculator.com/))
-        - [x] Adjuvant Abemaciclib in high risk patient: pN2/3 OR pN1 with either T3 OR Grade III
-        - [x] Adjuvant Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression [Consider NAET for larger tumors] **SOFT/TEXT**
+          - [x] ET duration for 5 years (+/- 2 - 5 years per BCI, MP Ultralow or [CTS5 Calculator](https://cts5-calculator.com/)) **ABCSG16**
+        - CHEMOTHERAPY
+          - [x] Oncotype **RxPONDER**
+            - [x] RS ≥26 → Chemotherapy. (Consider ddAC/T if RS >=30) 
+            - [x] RS 16-25 → Chemotherapy. 
+            - [x] RS ≤15 or less → Chemotherapy. 
+            - Absolute benefit of chemotherapy can be small, and can be offset with OFS
+          - [x] Mammaprint **MINDACT**
+            - [x] MPI POSITIVE (0 to 1) LOW and ULTRA LOW RISK → No Chemotherapy
+            - [x] MPI NEGATIVE (-1 to 0) High1 and High2 → Chemotherapy
+          - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is likey small for T1 N1 Stage  **EBCTG 2023** & **ABC 2024**
+        - TARGETED THERAPY
+          - [x] Ribociclib approved for N1 disease **NATALEE**
+          - [x] Abemaciclib appproved for N1 disease with Grade III **MonarchE**
+          - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
+        - BISPHOSPHONATES
+          - [x] Benefit is moderate **EBCTG 2015**
+
+
+
       - pT3 N0
-        - [x] ddAC/T vs TC (GEP NOT validated) (Plan for NACT)
-        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression (Plan for NAET for good biology LumA)
-        - [x] ET duration for 5 years (+/- 5 years per BCI or [CTS5 Calculator](https://cts5-calculator.com/))
-        - [x] Adjuvant Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression [Consider NAET for larger tumors] **SOFT/TEXT**
+          - [x] ET duration for 5 years (+/- 2 - 5 years per BCI, MP Ultralow or [CTS5 Calculator](https://cts5-calculator.com/)) **ABCSG16**
+        - CHEMOTHERAPY
+          - [x] Oncotype is NOT validated for T3 disease **TAILORx**
+          - [x] Mammaprint is NOT validated for T3 disease **MINDACT**
+          - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is high, and ddAC/T is favoured  **EBCTG 2023** & **ABC 2024**
+        - TARGETED THERAPY
+          - [x] Ribociclib approved for T3 N0 disease **NATALEE**
+          - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
+        - BISPHOSPHONATES
+          - [x] Benefit is moderate **EBCTG 2015**
 
 
     - STAGE III
-        - [x] ddAC/T [TC underperform] [GEP NOT validated] [Consider NACT]
-        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression for 7 to 10 years
-        - [x] ABEMACICLIB in high risk patient: pN2/3 OR pN1 with either T3 OR Grade III
-        - [x] OLAPARIB in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
+      - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression [Consider NAET for larger tumors] **SOFT/TEXT**
+          - [x] ET duration for 10 years. [CTS5 Calculator](https://cts5-calculator.com/)
+      - CHEMOTHERAPY
+          - [x] Oncotype is NOT validated for Stage III disease **RxPONDER**
+          - [x] Mammaprint is NOT validated for Stage III disease **MINDACT**
+          - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is high, and ddAC/T is favoured  **EBCTG 2023** & **ABC 2024**
+      - TARGETED THERAPY
+          - [x] Abemaciclib appproved for T3N1, N2 and N3 disease with **MonarchE**
+          - [x] Ribociclib approved for T3N1, N2 and N3 disease **NATALEE**
+          - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
+      - BISPHOSPHONATES
+          - [x] Benefit is high **EBCTG 2015**
 
 
     - STAGE IV
@@ -151,42 +220,115 @@ markmap:
   - Postmenopausal HR+ HER2-
     - STAGE I
       - pT1a N0
-        - [x] Adjuvant ET is category 2B but still discussed. Absolute DFS and BCSS benefit very small
-        - [x] Can be considered for 2ry chemoprevention.
-      - pT1b cN0 Grade I
-        - [x] TAILORx did not include this population. Can consider MammaPrint on case by case basis
-        - [x] Adjuvant ET (AI versus SERM). OFS benefit is small
-        - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
-      - [x] pT1b cN0 Grade II/III and pT1c cN0
-        - [x] Consider Oncotype / Mammaprint (TC) **TAILORx** and **MINDACT**
-          - [x] RS ≥26 → Chemotherapy 
-          - [x] ≤25 or less → No Chemotherapy
-        - [x] Adjuvant ET (AI versus SERM).
-        - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET is *Category 2B*. Absolute DFS and BCSS benefit 
+          very small
+          - [x] ET can be considered for 2ry chemoprevention post Lumpectomy or ipsilateral mastectomy.
+        - CHEMOTHERAPY
+          - [x] TAILORx did not include this population. 
+      - pT1b N0 Grade I
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM).
+          - [x] ET duration for 5 years (+/- 5 years per BCI or MP)
+        - CHEMOTHERAPY
+          - [x] TAILORx did not include this population. 
+          - [x] Can consider MammaPrint on individual basis
+        - TARGETED THERAPY
+          - [x] Trials did not include this population. 
+        - BISPHOSPHONATES
+          - [x] Benefit is very small **EBCTG 2015**
+
+      - pT1b N0 Grade II/III and pT1c N0
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM).
+          - [x] ET duration for 5 years (+/- 2 - 5 years per BCI, MP Ultralow or [CTS5 Calculator](https://cts5-calculator.com/)) **ABCSG16**
+        - CHEMOTHERAPY
+          - [x] Consider Oncotype **TAILORx**
+            - [x] RS ≥26 → Chemotherapy. (Consider ddAC/T if RS >=30) 
+            - [x] RS ≤ 25 → No Chemotherapy
+          - [x] Alternatively consider Mammaprint **MINDACT**
+            - [x] MPI POSITIVE (0 to 1) LOW and ULTRA LOW RISK → No Chemotherapy
+            - [x] MPI NEGATIVE (-1 to 0) High1 and High2 → Chemotherapy
+          - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is very small for Stage 1 **EBCTG 2023** & **ABC 2024**
+        - TARGETED THERAPY
+          - [x] Trials did not include this population. 
+        - BISPHOSPHONATES
+          - [x] Benefit is very small **EBCTG 2015**
+
+
     - STAGE II
       - pT2 N0
-        - [x] Consider Oncotype / Mammaprint (TC) **TAILORx** and **MINDACT**
-          - [x] RS ≥26: Chemotherapy 
-          - [x] ≤25 or less → No Chemotherapy
-        - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression [Consider NAET for larger tumors]
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM)
+          - [x] ET duration for 5 years (+/- 2 - 5 years per BCI, MP Ultralow or [CTS5 Calculator](https://cts5-calculator.com/)) **ABCSG16**
+        - CHEMOTHERAPY
+          - [x] Oncotype **TAILORx**
+            - [x] RS ≥26 → Chemotherapy. (Consider ddAC/T if RS >=30) 
+            - [x] RS ≤25 → No Chemotherapy
+          - [x] Mammaprint **MINDACT**
+            - [x] MPI POSITIVE (0 to 1) LOW and ULTRA LOW RISK → No Chemotherapy
+            - [x] MPI NEGATIVE (-1 to 0) High1 and High2 → Chemotherapy
+          - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is small for N0 Stage  **EBCTG 2023** & **ABC 2024**
+        - TARGETED THERAPY
+          - [x] Ribociclib approved for T2 N0 disease with Grade III OR Grade II with elevated RS, MPI or Ki67 20% **NATALEE**
+          - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
+        - BISPHOSPHONATES
+          - [x] Benefit is small **EBCTG 2015**
+
+        
       - pT1 N1, pT2 N1
-        - [x] Perform Oncotype/Mammaprint [Consider NACT for larger tumors]
-            - [x] RS ≥26: Chemotherapy
-            - [x] ≤25 or less → No Chemotherapy
-        - [x] Adjuvant ET (AI versus SERM) [Consider NAET for larger tumors]
-        - [x] ET duration for 5 years (+/- 5 years per BCI or [CTS5 Calculator](https://cts5-calculator.com/))
-        - [x] Adjuvant Abemaciclib in high risk patients with N1 and Grade III
-        - [x] Adjuvant Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM) [Consider NAET for larger tumors]
+          - [x] ET duration for 5 years (+/- 2 - 5 years per BCI, MP Ultralow or [CTS5 Calculator](https://cts5-calculator.com/)) **ABCSG16**
+        - CHEMOTHERAPY
+          - [x] Oncotype **RxPONDER**
+            - [x] RS ≥26 → Chemotherapy. (Consider ddAC/T if RS >=30) 
+            - [x] RS ≤25 → No Chemotherapy. 
+          - [x] Mammaprint **MINDACT**
+            - [x] MPI POSITIVE (0 to 1) LOW and ULTRA LOW RISK → No Chemotherapy
+            - [x] MPI NEGATIVE (-1 to 0) High1 and High2 → Chemotherapy
+          - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is likey small for T1 N1 Stage  **EBCTG 2023** & **ABC 2024**
+        - TARGETED THERAPY
+          - [x] Ribociclib approved for N1 disease **NATALEE**
+          - [x] Abemaciclib appproved for N1 disease with Grade III **MonarchE**
+          - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
+        - BISPHOSPHONATES
+          - [x] Benefit is moderate **EBCTG 2015**
+
+
+
       - pT3 N0
-        - [x] ddAC/T vs TC [GEP NOT validated] (Plan for NACT)
-        - [x] Adjuvant ET (AI versus SERM) (Plan for NAET for good biology LumA)
-        - [x] ET duration for 5 years (+/- 5 years per BCI or [CTS5 Calculator](https://cts5-calculator.com/))
-        - [x] Adjuvant Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
+        - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM) [Consider NAET for larger tumors]
+          - [x] ET duration for 5 years (+/- 2 - 5 years per BCI, MP Ultralow or [CTS5 Calculator](https://cts5-calculator.com/)) **ABCSG16**
+        - CHEMOTHERAPY
+          - [x] Oncotype is NOT validated for T3 disease **TAILORx**
+          - [x] Mammaprint is NOT validated for T3 disease **MINDACT**
+          - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is high, and ddAC/T is favoured  **EBCTG 2023** & **ABC 2024**
+        - TARGETED THERAPY
+          - [x] Ribociclib approved for T3 N0 disease **NATALEE**
+          - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
+        - BISPHOSPHONATES
+          - [x] Benefit is moderate **EBCTG 2015**
+
+
     - STAGE III
-        - [x] ddAC/T [TC underperform] [GEP NOT validated] [Consider NACT]
-        - [x] Adjuvant ET (AI versus SERM) for 7 to 10 years
-        - [x] ABEMACICLIB in high risk patients with T3 pN1, pN2, pN3
-        - [x] OLAPARIB in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II and III
+      - ENDOCRINE THERAPY
+          - [x] Adjuvant ET (AI versus SERM) [Consider NAET for larger tumors]
+          - [x] ET duration for 10 years. [CTS5 Calculator](https://cts5-calculator.com/)
+      - CHEMOTHERAPY
+          - [x] Oncotype is NOT validated for Stage III disease **RxPONDER**
+          - [x] Mammaprint is NOT validated for Stage III disease **MINDACT**
+          - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is high, and ddAC/T is favoured  **EBCTG 2023** & **ABC 2024**
+      - TARGETED THERAPY
+          - [x] Abemaciclib appproved for T3N1, N2 and N3 disease with **MonarchE**
+          - [x] Ribociclib approved for T3N1, N2 and N3 disease **NATALEE**
+          - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
+      - BISPHOSPHONATES
+          - [x] Benefit is high **EBCTG 2015**
+
+
+
     - STAGE IV
       - 1st line
         - [x] AI for small volume of disease
