@@ -556,26 +556,31 @@ markmap:
       - [x] For cT1a N0, upfront surgery. Benefit of adjuvant Chemotherapy is very minimal
       - [x] Definitive Surgery followed by Chemotherapy
         - [x] Adjuvant Docetaxel Cytoxan x 4 CYCLES 
-        - [x] Added benefit of ddAC/T over TC is likely very small *ABC Analysis 2024*
+        - [x] Added benefit of ddAC/T over TC is likely very small **ABC 2023** & **EBCTG 2024**
     - STAGE II
       - Neoadjuvant Therapy
-        - [x] Taxol (Weekly) followed by ddAC *ABC*
-        - [x] Taxol Carboplatin (Weekly) Pembro then dd Pembro *KEYNOTE-522*
+        - [x] Taxol (Weekly) followed by ddAC **ABC 2023**
+        - [x] Taxol Carboplatin (Weekly) Pembro then dd Pembro **KEYNOTE522**
+        - [x] Docetaxel Carboplatin Pembro **NeoPACT**
       - Post Neoadjuvant Therapy
-        - [x] Adjuvant Pembrolizumab to complete a year
-        - Post Neoadjuvant Therapy
-          - [x] If no pCR, Capecitabine 1000 mg/m2 D1-14 of 21D CYCLE x 8 CYCLES *CREATE-x*
-          - [x] If no pCR, gBRCA1/2 (and PALB2), adjuvant Olaparib *OlympiA*
+        - [x] Adjuvant Pembrolizumab 200mg IV q21D post KN522 for 9 CYCLES
+        - Depending on pCR status
+          - [x] If no pCR, Capecitabine 1000 mg/m2 D1-14 of 21D CYCLE x 8 CYCLES **CREATE-x**
+          - [x] If no pCR, gBRCA1/2 (and PALB2), adjuvant Olaparib **OlympiA**
           - [x] For high risk patients with pCR, consider adjuvant capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES **SYSUCC-001**
     - STAGE III
-        - [x] Taxol Carboplatin (Weekly) Pembro then dd Pembro (KN522)
-        - Post NACT
-          - [x] Adjuvant Pembrolizumab 200mg IV q21D post KN522 for 9 CYCLES
-          - [x] If no pCR, Capecitabine 1250 mg/m2 D1-14 of 21D CYCLE x 8 CYCLES (CREATE-x)
-          - [x] If pCR, Capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES (SYSUCC-001)
+      - Neoadjuvant Therapy
+        - [x] Taxol Carboplatin (Weekly) Pembro then dd Pembro **KEYNOTE522**
+        - [x] Docetaxel Carboplatin Pembro **NeoPACT**
+      - Post Neoadjuvant Therapy
+        - [x] Adjuvant Pembrolizumab 200mg IV q21D post KN522 for 9 CYCLES
+        - Depending on pCR status
+          - [x] If no pCR, Capecitabine 1000 mg/m2 D1-14 of 21D CYCLE x 8 CYCLES **CREATE-x**
+          - [x] If no pCR, gBRCA1/2 (and PALB2), adjuvant Olaparib **OlympiA**
+          - [x] For high risk patients with pCR, consider adjuvant capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES **SYSUCC-001**
     - STAGE IV
       - 1st line
-        - [x] Paclitaxel OR Abraxane OR CarboGem. Add Pembro if 22C3+ **KN355**
+        - [x] Paclitaxel OR Abraxane OR CarboGem. Add Pembro if 22C3+ **KEYNOTE355**
         - [x] Olaparib OR Talzaporib for germline BRCA1/2 **OlympiA** and for somatic/germline PALB2 and somatic BRCA1/2 **TBCRC048**
         - [x] Capecitabine 1000mg/m2 for low volume disease 
       - 2nd line
@@ -603,3 +608,8 @@ markmap:
         - [x] Selpercatinib in RET fusion
         - [x] Neratinib in HER2/ERBB2 mutated
 
+  - New Trials to add
+    - SONIA trial. PALMIRA, PACE trials for continue cdk
+    -  NAET POETIC, ALTERNATE
+    - PATRICIA trial
+    - DECRESCENDO de-escalation
