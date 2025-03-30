@@ -610,6 +610,19 @@ markmap:
 
   - New Trials to add
     - SONIA trial. PALMIRA, PACE trials for continue cdk
-    -  NAET POETIC, ALTERNATE
+    - NAET POETIC, ALTERNATE
     - PATRICIA trial
     - DECRESCENDO de-escalation
+    - NAET. P024, greta study, poetic, alternate. ADAPT study and ADAPTcycle. Talzenna
+    - Recurrent sequencing for ESR1
+    - early PARPi as 1st line. 
+    - Sole trial: can pause AI. Non adherence to ET increases mortality
+    - Switch AI (henry JCO)
+    - Swog 1202 (cymbalta), Accupuncture s1200, exercise (hope study)
+    - PACE and PALMIRA: Palbo after PalbO NOT HELPFUL
+    - Patricia high dose herceptin
+    - Tuxedo, Deborah and db-br12
+    - Rad Nec with ADC lebow Jama onc 2023
+    - PADMA and RIGHT CHOUCE
+    - PVerify data
+    - PADA-1 and SERENA-6 for ctDNA ET+
