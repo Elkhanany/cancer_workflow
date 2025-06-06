@@ -580,6 +580,7 @@ markmap:
           - [x] For high risk patients with pCR, consider adjuvant capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES **SYSUCC-001**
     - STAGE IV
       - 1st line
+        - [x] Sacituzumab govitecan with Pembrolizumab if 22C3+ve
         - [x] Paclitaxel OR Abraxane OR CarboGem. Add Pembro if 22C3+ **KEYNOTE355**
         - [x] Olaparib OR Talzaporib for germline BRCA1/2 **OlympiA** and for somatic/germline PALB2 and somatic BRCA1/2 **TBCRC048**
         - [x] Capecitabine 1000mg/m2 for low volume disease 
