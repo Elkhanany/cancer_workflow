@@ -585,8 +585,8 @@ markmap:
         - [x] Olaparib OR Talzaporib for germline BRCA1/2 **OlympiA** and for somatic/germline PALB2 and somatic BRCA1/2 **TBCRC048**
         - [x] Capecitabine 1000mg/m2 for low volume disease 
       - 2nd line
-        - [x] Trastuzumab deruxtecan, IHC Low, given after 1 Chemo line **DB04**
         - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPICS02**
+        - [x] Trastuzumab deruxtecan, IHC Low, given after 1 Chemo line **DB04**
       - 3rd line
         - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPICS02**
       - Further lines
