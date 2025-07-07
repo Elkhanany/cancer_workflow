@@ -465,8 +465,8 @@ markmap:
       - [x] For pT1a N0, adjuvant Herceptin is rarely used since  category 2B. Can be considered if multifocal disease. Adjuvant ET is category 2B but still discussed. Absolute benefit very small, but consider for 2ry chemoprevention. 
       - [x] For pT1b and pT1c, Upfront surgery then adjuvant Taxol x12 weeks and Herceptin q3Wk x 1 year. *APT regimen*
       - [x] Adjuvant Herceptin to complete 1 year
-      - [x] In age 75+, can consider single agent Herceptin *RESPECT 2020*
-      - [x] Adjuvant ET (AI versus SERM)
+      - [x] In age 75+, can consider single agent Herceptin **RESPECT**
+      - [x] Adjuvant ET (AI versus SERM) **NRG B52**
       - [x] Adjuvant Neratinib benefit is likely very small. 
 
 
@@ -504,16 +504,17 @@ markmap:
 
     - STAGE IV
       - 1st line
-        - [x] Docetaxeol OR Paclitaxel with HP → maintenance ET + HP **CLEOPATRA** & **PERTAIN**
-        - [x] Docetaxeol OR Paclitaxel with HP → maintenance ET + HP + CDK4/6i **PATINA**
-        - [x] ET + HP **SYSUCC002**
+        - [x] Trastuzumab deruxtecan + Pertuzumab **DB09**
+        - [x] Docetaxeol OR Paclitaxel with HP → maintenance ET + HP **CLEOPATRA** & **PERTAIN** 
+        - [x] Docetaxeol OR Paclitaxel with HP → maintenance ET + HP + CDK4/6i **PATINA** & **BR 18-2 MINI**
+        - [x] ET + HP **SYSUCC002** & **PERTAIN**
       - 2nd line
         - [x] Trastuzumab deruxtecan **DB03**
-        - [x] Capecitabine+Tucatinib+Herceptin **HER2CLIMB01**
-        - [x] TDM1+Tucatinib **HER2CLIMB02**
+        - [x] Capecitabine + Tucatinib + Herceptin **HER2CLIMB01**
+        - [x] TDM1 + Tucatinib **HER2CLIMB02**
       - 3rd line
         - [x] Trastuzumab deruxtecan if not used before **DB03**
-        - [x] Capecitabine+Tucatinib+Herceptin if not used before **HER2CLIMB01**
+        - [x] Capecitabine + Tucatinib + Herceptin if not used before **HER2CLIMB01**
         - [x] Margetuximab with chemotherapy **SOPHIA**
           - [x] capecitabine
           - [x] eribulin
@@ -560,27 +561,27 @@ markmap:
     - STAGE II
       - Neoadjuvant Therapy
         - [x] Taxol (Weekly) followed by ddAC **ABC 2023**
-        - [x] Taxol Carboplatin (Weekly) Pembro then dd Pembro **KEYNOTE522**
+        - [x] Taxol Carboplatin (weekly) Pembro then ddAC Pembro **KEYNOTE522**
         - [x] Docetaxel Carboplatin Pembro **NeoPACT**
       - Post Neoadjuvant Therapy
         - [x] Adjuvant Pembrolizumab 200mg IV q21D post KN522 for 9 CYCLES
         - Depending on pCR status
           - [x] If no pCR, Capecitabine 1000 mg/m2 D1-14 of 21D CYCLE x 8 CYCLES **CREATE-x**
           - [x] If no pCR, gBRCA1/2 (and PALB2), adjuvant Olaparib **OlympiA**
-          - [x] For high risk patients with pCR, consider adjuvant capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES **SYSUCC-001**
+          - [x] For high risk patients with pCR, consider adjuvant capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES **SYSUCC-001** & **FinXX**
     - STAGE III
       - Neoadjuvant Therapy
-        - [x] Taxol Carboplatin (Weekly) Pembro then dd Pembro **KEYNOTE522**
+        - [x] Taxol Carboplatin (Weekly) Pembro then ddAC Pembro **KEYNOTE522**
         - [x] Docetaxel Carboplatin Pembro **NeoPACT**
       - Post Neoadjuvant Therapy
         - [x] Adjuvant Pembrolizumab 200mg IV q21D post KN522 for 9 CYCLES
         - Depending on pCR status
           - [x] If no pCR, Capecitabine 1000 mg/m2 D1-14 of 21D CYCLE x 8 CYCLES **CREATE-x**
           - [x] If no pCR, gBRCA1/2 (and PALB2), adjuvant Olaparib **OlympiA**
-          - [x] For high risk patients with pCR, consider adjuvant capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES **SYSUCC-001**
+          - [x] For high risk patients with pCR, consider adjuvant capecitabine 650 mg/m2 D1-28 of 28D CYCLE x 12 CYCLES **SYSUCC-001** & **FinXX**
     - STAGE IV
       - 1st line
-        - [x] Sacituzumab govitecan with Pembrolizumab if 22C3+ve
+        - [x] Sacituzumab govitecan with Pembrolizumab if 22C3+ve **ASCENT-04**
         - [x] Paclitaxel OR Abraxane OR CarboGem. Add Pembro if 22C3+ **KEYNOTE355**
         - [x] Olaparib OR Talzaporib for germline BRCA1/2 **OlympiA** and for somatic/germline PALB2 and somatic BRCA1/2 **TBCRC048**
         - [x] Capecitabine 1000mg/m2 for low volume disease 
