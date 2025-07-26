@@ -6,36 +6,36 @@ markmap:
   colorFreezeLevel: 8
 ---
 - Breast Cancer
-  - Prevention in High Risk 
-    - Elevated IBIS >20%
-      - IBIS 10-year >= 5%
+  - Familial, Hereditary and Premalignant
+    - Prevention in Familial High Risk
+      - Lifetime risk >20% (IBIS)
         - [x] Annual MMG and MRI (Minimum age 30 and 25 respectively)
+        - [x] Germline Testing is recommended to rule out high-penetrant mutations
+      - 10-year risk >5% (IBIS)
         - [x] Chemoprevention with Tamoxifen (20mg vs babytam) or Raloxifen or AI (if intolerant to SERM)
-        - [x] Similar recommendations for GAIL 5-year >= 1.7%
-      - IBIS 10-year < 5%
-        - [x] Annual MMG and MRI (Minimum age 30 and 25 respectively)
-        - [x] Chemoprevention on case-by-case basis (if risk is thought elevated)
-    - Germline mutation
+      - 5-year risk > 1.67% (Gail)
+        - [x] Chemoprevention with Tamoxifen (20mg vs babytam) or Raloxifen or AI (if intolerant to SERM)
+    - Prevention in Hereditary High Risk
       - Management per mutation. [Myriad Gene Table](https://myriad.com/gene-table/)
 
-  - Premalignant and High Risk Conditions
-    - LCIS
-      - [x] Most require excisional biopsy
-      - [x] Chemoprevention with Tamoxifen (20mg vs babytam per **TAM001**)
-      - [x] Raloxifen or AI can be used (if intolerant to SERM)
-    - ADH
-      - [x] Some require excisional biopsy
-      - [x] Chemoprevention with Tamoxifen (20mg vs babytam per **TAM001**)
-      - [x] Raloxifen or AI can be used (if intolerant to SERM)
-    - DCIS
-      - ER +ve
-        - [x] Surgical Excision is strongly recommended. Mastectomy VERSUS BCT
-        - [x] Oncotype DCIS or DecisionRT post BCS can omit RT if low score
+    - Premalignant and High Risk Conditions
+      - LCIS
+        - [x] Most require excisional biopsy
         - [x] Chemoprevention with Tamoxifen (20mg vs babytam per **TAM001**)
-        - [x] Raloxifen or AI can be used (if intolerant to SERM per **NSABP B-35**)
-      - ER -ve
-        - [x] Surgical Excision is strongly recommended. Mastectomy VERSUS BCT
-        - [x] No distinct benefit of ET in chemoprevention
+        - [x] Raloxifen or AI can be used (if intolerant to SERM)
+      - ADH
+        - [x] Some require excisional biopsy
+        - [x] Chemoprevention with Tamoxifen (20mg vs babytam per **TAM001**)
+        - [x] Raloxifen or AI can be used (if intolerant to SERM)
+      - DCIS
+        - ER +ve
+          - [x] Surgical Excision is strongly recommended. Mastectomy VERSUS BCT
+          - [x] Oncotype DCIS or DecisionRT post BCS can omit RT if low score
+          - [x] Chemoprevention with Tamoxifen (20mg vs babytam per **TAM001**)
+          - [x] Raloxifen or AI can be used (if intolerant to SERM per **NSABP B-35**)
+        - ER -ve
+          - [x] Surgical Excision is strongly recommended. Mastectomy VERSUS BCT
+          - [x] No distinct benefit of ET in chemoprevention
 
   
 
