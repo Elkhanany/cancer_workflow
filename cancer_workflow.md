@@ -169,6 +169,8 @@ markmap:
         - [x] OFS+AI+CDK4/6, ideally Kisqali (Since **MONALEESA-7** was in premenopasue only)
         - [x] OFS+AI with other CDK4/6 options include Palbociclib and Abemaciclib **PALOMA2** & **MONARCH3**
         - [x] For non-denovo if PIK3CA mut, can consider OFS+Fulvestrant+inavolisib **INAVO120**
+        - [x] Monitor ctDNA on 1L ET+CDK4/6i; on emergent ESR1m switch pre-emptively to Camizestrant (continue CDK4/6i) **SERENA-6** or Fulvestrant+Palbociclib **PADA-1**
+        - [x] 1L vs 2L CDK4/6i timing shows comparable OS; deferral to 2L is an option **SONIA**
       - 2nd line
         - Soft progression on OFS+AI alone
           - [x] OFS+Fulvestrant+CDK4/6 **PALOMA3**, **MONALEESA3** & **MONARCH2**
@@ -334,6 +336,8 @@ markmap:
         - [x] AI for small volume of disease
         - [x] AI+CDK4/6i Palbociclib, Ribociclib OR Abemaciclib **PALOMA2**, **MONALESA2** & **MONARCH3**
         - [x] For non-denovo if PIK3CA mut, can consider Fulvestrant+inavolisib **INAVO120**
+        - [x] Monitor ctDNA on 1L ET+CDK4/6i; on emergent ESR1m switch pre-emptively to Camizestrant (continue CDK4/6i) **SERENA-6** or Fulvestrant+Palbociclib **PADA-1**
+        - [x] 1L vs 2L CDK4/6i timing shows comparable OS; deferral to 2L is an option **SONIA**
       - 2nd line
         - Soft progression on AI alone
           - [x] Fulvestrant+CDK4/6i Palbociclib, Ribociclib OR Abemaciclib **PALOMA3**, **MONALEESA3** & **MONARCH2**
@@ -396,6 +400,7 @@ markmap:
         - [x] For poor ECOG, Can consider TDM1+Pertuzumab **KRISTINE**
       - Post Receiving NACT
         - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] T-DXd is superior to TDM-1 for high-risk residual disease **DB05**
         - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
       - Adjuvant Therapy without NACT
         - [x] Adjuvant Taxotere, Carboplatin, HP **APHINITY**
@@ -408,6 +413,7 @@ markmap:
         - [x] Weekly Taxol, HP followed by ddAC **NOAH**
       - Post Receiving NACT
         - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] T-DXd is superior to TDM-1 for high-risk residual disease **DB05**
         - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
       - Adjuvant Therapy without NACT
         - [x] Adjuvant Taxotere, Carboplatin, HP **APHINITY**
@@ -415,6 +421,7 @@ markmap:
     - STAGE IV
       - 1st line
         - [x] Docetaxeol OR Paclitaxel with HP → maintenance HP **CLEOPATRA**
+        - [x] Trastuzumab deruxtecan + Pertuzumab, emerging 1st line option (regardless of HR status) **DB09**
       - 2nd line
         - [x] Trastuzumab deruxtecan **DB03**
         - [x] Capecitabine+Tucatinib+Herceptin **HER2CLIMB01**
@@ -477,6 +484,7 @@ markmap:
         - [x] For poor ECOG, Can consider TDM1+Pertuzumab **KRISTINE** or Palbociclib+Letrozole+HP **TOUCH**
       - Post Receiving NACT
         - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] T-DXd is superior to TDM-1 for high-risk residual disease **DB05**
         - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
         - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression if premenopausal **SOFT/TEXT**
         - [x] Consider Adjuvant Neratinib (Benefit after receiving Kadcyla is unknown) **ExteNET**
@@ -493,6 +501,7 @@ markmap:
        - [x] Weekly Taxol, HP followed by ddAC **NOAH**
       - Post Receiving NACT
         - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] T-DXd is superior to TDM-1 for high-risk residual disease **DB05**
         - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
         - [x] Adjuvant AI with Ovarian Suppression if premenopausal **SOFT/TEXT**
         - [x] Consider Adjuvant Neratinib (Benefit after receiving Kadcyla is unknown) **ExteNET**
@@ -627,4 +636,14 @@ markmap:
     - Rad Nec with ADC lebow Jama onc 2023
     - PADMA and RIGHT CHOUCE
     - PVerify data
-    - PADA-1 and SERENA-6 for ctDNA ET+
+    - PADA-1 and SERENA-6 for ctDNA ET
+
+  - Recently Integrated / Emerging (2025-2026)
+    - Integrated into tree above
+      - [x] ctDNA-guided pre-emptive switch on emergent ESR1m **SERENA-6** & **PADA-1** (HR+ HER2- Stage IV, 1st line)
+      - [x] 1L T-DXd + Pertuzumab in HER2+ MBC **DB09** (HR- HER2+ and Triple Positive Stage IV, 1st line)
+      - [x] Post-neoadjuvant T-DXd superior to T-DM1 for residual HER2+ disease **DB05** (all no-pCR nodes)
+      - [x] Comparable OS for 1L vs 2L CDK4/6i timing **SONIA** (HR+ HER2- Stage IV, 1st line)
+    - Emerging / to watch
+      - Oral ER degraders in ESR1m beyond Elacestrant: Camizestrant, Vepdegestrant **VERITAC-2**, Lasofoxifene+Abemaciclib **ELAINE-3**
+      - TNBC: Datopotamab deruxtecan +/- Durvalumab in 1st line and residual disease **Tropion-Breast02/03/05**+
