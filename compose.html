@@ -166,7 +166,7 @@ main { max-width: 960px; margin: 0 auto; padding: 18px 20px 80px; }
 .banner b { font-weight: 800; }
 
 /* ---------- Form controls ---------- */
-label { display: block; font-size: 13px; font-weight: 700; margin: 0 0 5px; }
+label, .field-label { display: block; font-size: 13px; font-weight: 700; margin: 0 0 5px; }
 .field { margin-bottom: 14px; }
 .req { color: var(--err); }
 select, input[type="text"], textarea {
@@ -176,7 +176,7 @@ select, input[type="text"], textarea {
   background: var(--surface); color: var(--text-primary);
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-textarea { min-height: 160px; resize: vertical; font-size: 14px; line-height: 1.5; }
+textarea { min-height: 160px; resize: vertical; font-size: 16px; line-height: 1.5; }
 select:focus-visible, input:focus-visible, textarea:focus-visible,
 select:focus, input:focus, textarea:focus {
   outline: none; border-color: var(--focus); box-shadow: 0 0 0 3px var(--focus-ring);
@@ -313,7 +313,7 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
   <div class="card" id="parentCard" hidden>
     <h2><span class="step-n">1</span> Choose where it goes</h2>
     <div class="hint" style="margin-bottom:12px;">Drill down to the exact heading the new entry should sit under. Stop at any level &mdash; the deepest choice becomes the parent.</div>
-    <div class="pickers" id="pickers" aria-live="polite"></div>
+    <div class="pickers" id="pickers"></div>
     <div class="breadcrumb" id="breadcrumb" aria-live="polite"></div>
   </div>
 
@@ -348,8 +348,8 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
   <!-- Step 3: preview -->
   <div class="card" id="previewCard" hidden>
     <h2><span class="step-n">3</span> Preview</h2>
-    <label>Formatted markdown line</label>
-    <pre class="md-line" id="mdLine" aria-live="polite"></pre>
+    <div class="field-label" id="mdLineLabel">Formatted markdown line</div>
+    <pre class="md-line" id="mdLine" aria-labelledby="mdLineLabel" aria-live="polite"></pre>
     <div id="validateBanner" class="banner ok" role="status" aria-live="polite" style="margin-top:10px;"></div>
     <div class="outline" id="outline"></div>
   </div>
@@ -416,7 +416,36 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
    * ==================================================================== */
   var NODE_RE = /^(\s*)- (.*)$/;
   function isBlank(line) { return line == null || line.trim() === ''; }
-  function detectEol(text) { return text.indexOf('\r\n') >= 0 ? '\r\n' : '\n'; }
+
+  // Split into physical lines while REMEMBERING each line's original terminator.
+  // The real cancer_workflow.md mixes CRLF and lone-LF endings; a naive
+  // text.split('\r\n') merges the lone-LF lines and silently drops dozens of
+  // nodes. Splitting on a universal newline and preserving each terminator lets
+  // the file round-trip byte-for-byte (no "unchanged line" is ever rewritten)
+  // while every node is parsed correctly. contents[i] is the line text without
+  // its terminator; terms[i] is '\r\n' | '\r' | '\n' | '' (final segment has none).
+  function splitLines(text) {
+    var contents = [], terms = [], re = /\r\n|\r|\n/g, last = 0, m;
+    while ((m = re.exec(text))) {
+      contents.push(text.slice(last, m.index));
+      terms.push(m[0]);
+      last = m.index + m[0].length;
+    }
+    contents.push(text.slice(last));
+    terms.push('');
+    return { contents: contents, terms: terms };
+  }
+  function joinLines(contents, terms) {
+    var out = '', i;
+    for (i = 0; i < contents.length; i++) out += contents[i] + terms[i];
+    return out;
+  }
+  function dominantEol(terms) {
+    var c = { '\r\n': 0, '\n': 0, '\r': 0 }, i, k, best = '\n', bestN = 0;
+    for (i = 0; i < terms.length; i++) if (c[terms[i]] != null) c[terms[i]]++;
+    for (k in c) if (c.hasOwnProperty(k) && c[k] > bestN) { bestN = c[k]; best = k; }
+    return best;
+  }
 
   function findFrontmatter(lines) {
     var fmStart = -1, fmEnd = -1, i, j;
@@ -434,13 +463,14 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
   }
 
   function parse(text) {
-    var eol = detectEol(text);
-    var lines = text.split(eol);
-    var fm = findFrontmatter(lines);
+    var sl = splitLines(text);
+    var contents = sl.contents, terms = sl.terms;
+    var eol = dominantEol(terms);
+    var fm = findFrontmatter(contents);
     var startIdx = fm.fmEnd >= 0 ? fm.fmEnd + 1 : 0;
     var nodes = [], i, m;
-    for (i = startIdx; i < lines.length; i++) {
-      m = NODE_RE.exec(lines[i]);
+    for (i = startIdx; i < contents.length; i++) {
+      m = NODE_RE.exec(contents[i]);
       if (!m) continue; // blank & wrapped-continuation lines are NOT nodes
       var indent = m[1].length;
       var textPart = m[2];
@@ -458,21 +488,26 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
       stack.push(n);
     }
     var roots = nodes.filter(function (x) { return x.parent === null; });
-    return { eol: eol, lines: lines, fm: fm, nodes: nodes, roots: roots };
+    return { eol: eol, contents: contents, terms: terms, fm: fm, nodes: nodes, roots: roots };
   }
 
-  // spec rule: a direct child of P is indented P.indent + 2 spaces. That is P's
-  // CommonMark content column, i.e. exactly what markmap re-parses as a child of P.
-  function newIndentFor(P) { return P.indent + 2; }
+  // A direct child of P is indented to P's CommonMark content column (P.indent + 2),
+  // which is exactly what markmap re-parses as a child of P. When P already has
+  // children we mirror the first child's indent instead, so the new line is always
+  // consistent with its existing siblings even if the source region is irregular.
+  function newIndentFor(P) {
+    if (P.children && P.children.length) return P.children[0].indent;
+    return P.indent + 2;
+  }
 
-  function computeInsertPos(lines, P) {
-    var pIdx = P.lineIndex, pIndent = P.indent, end = lines.length, i, m;
-    for (i = pIdx + 1; i < lines.length; i++) {
-      m = NODE_RE.exec(lines[i]);
+  function computeInsertPos(contents, P) {
+    var pIdx = P.lineIndex, pIndent = P.indent, end = contents.length, i, m;
+    for (i = pIdx + 1; i < contents.length; i++) {
+      m = NODE_RE.exec(contents[i]);
       if (m && m[1].length <= pIndent) { end = i; break; } // first sibling/ancestor node
     }
     var pos = end; // just past P's subtree
-    while (pos > pIdx + 1 && isBlank(lines[pos - 1])) pos--; // skip the trailing-blank gap
+    while (pos > pIdx + 1 && isBlank(contents[pos - 1])) pos--; // skip the trailing-blank gap
     return pos;
   }
 
@@ -483,11 +518,13 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
   }
 
   function insertEntry(parsed, P, userText, tags, isRec) {
-    var lines = parsed.lines.slice();
+    var contents = parsed.contents.slice();
+    var terms = parsed.terms.slice();
     var newLine = buildLine(P, userText, tags, isRec);
-    var pos = computeInsertPos(lines, P);
-    lines.splice(pos, 0, newLine);
-    return { text: lines.join(parsed.eol), pos: pos, newLine: newLine };
+    var pos = computeInsertPos(contents, P);
+    contents.splice(pos, 0, newLine);
+    terms.splice(pos, 0, parsed.eol); // new line gets the file's dominant terminator
+    return { text: joinLines(contents, terms), pos: pos, newLine: newLine };
   }
 
   // Locate a node in a freshly parsed tree by the sequence of texts from a
@@ -514,17 +551,28 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
   /* ======================================================================
    * SANITISERS
    * ==================================================================== */
+  // Neutralize raw HTML before the value is ever written into the source file.
+  // markmap passes raw HTML through and the site renders node.content via innerHTML,
+  // so an unescaped '<' would be a stored-XSS vector (and this page also holds a
+  // GitHub PAT). Entity-encoding the angle brackets keeps the injection inert while
+  // preserving the visible characters on the map (e.g. "PD-L1 <1%" still reads as
+  // "PD-L1 <1%"). Applied last, after all other cleaning.
+  function neutralizeHtml(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
   function cleanEntryText(raw) {
-    return String(raw == null ? '' : raw)
-      .replace(/[\r\n\t]+/g, ' ')          // one line only
-      .replace(/^\s*-\s+/, '')             // user typed a leading dash
-      .replace(/^\s*\[[ xX]\]\s*/, '')     // user typed a checkbox
-      .replace(/\s+/g, ' ')
-      .trim();
+    return neutralizeHtml(
+      String(raw == null ? '' : raw)
+        .replace(/[\r\n\t]+/g, ' ')          // one line only
+        .replace(/^\s*-\s+/, '')             // user typed a leading dash
+        .replace(/^\s*\[[ xX]\]\s*/, '')     // user typed a checkbox
+        .replace(/\s+/g, ' ')
+        .trim()
+    );
   }
   function cleanTags(raw) {
     return String(raw == null ? '' : raw).split(',')
-      .map(function (t) { return t.replace(/[\r\n\t]+/g, ' ').replace(/^[\s*]+|[\s*]+$/g, '').trim(); })
+      .map(function (t) { return neutralizeHtml(t.replace(/[\r\n\t]+/g, ' ').replace(/^[\s*]+|[\s*]+$/g, '').trim()); })
       .filter(function (t) { return t.length > 0; });
   }
   // Human-readable label for the outline (safe: result is assigned via textContent).
@@ -615,24 +663,36 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
       showPasteFallback('Opened from disk (' + proto + '). Automatic loading needs the hosted site; paste the file below to continue.');
       return;
     }
+    // Feature-detect fetch so an old browser degrades to the paste box instead of
+    // hanging on the "Loading…" banner.
+    if (typeof fetch !== 'function') {
+      showPasteFallback('This browser cannot auto-load the file. Paste it below to continue.');
+      return;
+    }
     var done = false;
     var timer = setTimeout(function () {
       if (done) return; done = true;
       showPasteFallback('Loading timed out. Paste the file below to continue.');
     }, 12000);
-    fetch('cancer_workflow.md', { cache: 'no-store' })
-      .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.text();
-      })
-      .then(function (text) {
-        if (done) return; done = true; clearTimeout(timer);
-        onLoaded(text, 'cancer_workflow.md');
-      })
-      .catch(function (err) {
-        if (done) return; done = true; clearTimeout(timer);
-        showPasteFallback('Could not fetch cancer_workflow.md (' + (err && err.message ? err.message : err) + '). Paste the file below to continue.');
-      });
+    // Wrap the call itself: any synchronous throw still surfaces the paste box.
+    try {
+      fetch('cancer_workflow.md', { cache: 'no-store' })
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.text();
+        })
+        .then(function (text) {
+          if (done) return; done = true; clearTimeout(timer);
+          onLoaded(text, 'cancer_workflow.md');
+        })
+        .catch(function (err) {
+          if (done) return; done = true; clearTimeout(timer);
+          showPasteFallback('Could not fetch cancer_workflow.md (' + (err && err.message ? err.message : err) + '). Paste the file below to continue.');
+        });
+    } catch (err) {
+      if (done) return; done = true; clearTimeout(timer);
+      showPasteFallback('Could not start loading (' + (err && err.message ? err.message : err) + '). Paste the file below to continue.');
+    }
   }
 
   if (el.pasteLoad) el.pasteLoad.addEventListener('click', function () {
@@ -699,6 +759,13 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
     else { S.path[level] = nodeById(value); S.path.length = level + 1; }
     buildPickers();
     updatePreview();
+    // buildPickers() rebuilds every <select>, which would drop keyboard focus to
+    // <body>. Restore it to the deepest select (the newly revealed child, or the
+    // one just used) so keyboard / screen-reader users are not bounced to the top.
+    try {
+      var selects = el.pickers.querySelectorAll('select');
+      if (selects.length) selects[selects.length - 1].focus();
+    } catch (e) {}
   }
 
   function buildPickers() {
@@ -773,30 +840,36 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
       return;
     }
 
-    // Client-side sanity: splice into a copy and re-parse; the inserted line's
-    // indentation-parent must be P. (markmap uses the same content-column rule.)
+    // Authoritative sanity check: splice into a copy and re-parse; the inserted
+    // line's indentation-parent must be P AND its indent must reach P's CommonMark
+    // content column (P.indent + 2) — the exact rule markmap uses to nest a child.
+    // If either fails, saving is BLOCKED so a mis-nested entry can never reach main.
     var ok = false, detail = '';
     try {
+      var contentCol = P.indent + 2;
+      var newIndent = newIndentFor(P);
       var out = insertEntry(S.parsed, P, e.text, e.tags, e.isRec);
       var re = parse(out.text);
       var inserted = null, i;
       for (i = 0; i < re.nodes.length; i++) {
         if (re.nodes[i].lineIndex === out.pos) { inserted = re.nodes[i]; break; }
       }
-      if (inserted && inserted.parent && inserted.parent.text === P.text &&
+      var attachesToP = !!(inserted && inserted.parent && inserted.parent.text === P.text &&
           inserted.parent.children[inserted.parent.children.length - 1] === inserted &&
-          inserted.indent === newIndentFor(P)) {
+          inserted.indent === newIndent);
+      var markmapNests = newIndent >= contentCol; // child must reach parent's content column
+      if (attachesToP && markmapNests) {
         ok = true;
         detail = 'Validated: parses cleanly and attaches as the last child of “' + prettify(P.text) + '”.';
       } else {
-        detail = 'Heads up: this parent has irregular indentation in the source; the entry will still be added but may render beside its neighbours rather than nested. Use Download and review before committing.';
+        detail = 'This parent has irregular indentation in the source, so the entry cannot be nested reliably under it. Saving is disabled — choose a different parent, or have the source indentation repaired first.';
       }
     } catch (err) {
       detail = 'Validation error: ' + (err && err.message ? err.message : err);
     }
     setBanner(el.validateBanner, ok ? 'ok' : 'warn', detail);
     renderOutline(P, e);
-    updateOutputsEnabled(true);
+    updateOutputsEnabled(ok); // gate ALL outputs on validation, not just readiness
   }
 
   function renderOutline(P, e) {
@@ -1030,11 +1103,15 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
         var ok = document.createElement('div');
         ok.className = 'banner ok';
         ok.textContent = 'Pull request #' + pr.number + ' created. ';
-        var a = document.createElement('a');
-        a.href = pr.html_url;        // GitHub-controlled URL
-        a.target = '_blank'; a.rel = 'noopener noreferrer';
-        a.textContent = 'Open it on GitHub';
-        ok.appendChild(a);
+        // Only turn the API-returned URL into a navigable link if it is a real
+        // github.com https URL (allowlist; the value is otherwise shown as text).
+        if (/^https:\/\/github\.com\//.test(String(pr.html_url || ''))) {
+          var a = document.createElement('a');
+          a.href = pr.html_url;
+          a.target = '_blank'; a.rel = 'noopener noreferrer';
+          a.textContent = 'Open it on GitHub';
+          ok.appendChild(a);
+        }
         el.prStatus.appendChild(ok);
         var note = document.createElement('div');
         note.className = 'hint'; note.style.marginTop = '8px';
