@@ -1,0 +1,52 @@
+name: Build site
+
+# Rebuild the published index.html whenever the SOURCE changes.
+# Triggers ONLY on the source markdown or the build script -- never on index.html
+# itself -- so the auto-commit below cannot retrigger this workflow (no loop).
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - cancer_workflow.md
+      - cancer_index.js
+
+# Allow the job to push the regenerated index.html back to the repo.
+permissions:
+  contents: write
+
+# Serialize runs on main so two quick pushes can't race on the commit-back.
+concurrency:
+  group: build-site-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Regenerate index.html
+        run: node cancer_index.js
+
+      - name: Commit regenerated index.html
+        run: |
+          if [ -n "$(git status --porcelain -- index.html)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -- index.html
+            # "[skip ci]" is a second guard against loops (the paths filter above is the first).
+            git commit -m "chore: rebuild index.html from cancer_workflow.md [skip ci]"
+            git push
+          else
+            echo "index.html is already up to date; nothing to commit."
+          fi

@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Compose Entry &middot; Cancer Management</title>
+<script>
+/* Seed the theme before first paint to avoid a flash of the wrong theme.
+   Shares the 'cw-theme' key with the main site so the choice carries over. */
+(function () {
+  try {
+    var s = localStorage.getItem('cw-theme');
+    var dark = s ? s === 'dark'
+      : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme', 'light');
+  }
+})();
+</script>
+<style>
+:root {
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --surface: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border: #e2e8f0;
+  --accent: #334155;
+  --link: #2563eb;
+  --focus: #2563eb;
+  --focus-ring: rgba(37, 99, 235, 0.35);
+  --shadow: rgba(15, 23, 42, 0.10);
+  --evidence-bg: rgba(100, 116, 139, 0.14);
+  --hit-bg: rgba(37, 99, 235, 0.12);
+  --ok: #059669;
+  --ok-bg: rgba(5, 150, 105, 0.12);
+  --warn: #b45309;
+  --warn-bg: rgba(180, 83, 9, 0.12);
+  --err: #dc2626;
+  --err-bg: rgba(220, 38, 38, 0.12);
+  --code-bg: #f1f5f9;
+}
+:root[data-theme="dark"] {
+  --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  --surface: #111a2b;
+  --card-bg: rgba(30, 41, 59, 0.92);
+  --header-bg: rgba(15, 23, 42, 0.95);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border: #334155;
+  --accent: #cbd5e1;
+  --link: #7db3ff;
+  --focus: #60a5fa;
+  --focus-ring: rgba(96, 165, 250, 0.40);
+  --shadow: rgba(0, 0, 0, 0.35);
+  --evidence-bg: rgba(148, 163, 184, 0.20);
+  --hit-bg: rgba(96, 165, 250, 0.18);
+  --ok: #34d399;
+  --ok-bg: rgba(52, 211, 153, 0.15);
+  --warn: #fbbf24;
+  --warn-bg: rgba(251, 191, 36, 0.15);
+  --err: #f87171;
+  --err-bg: rgba(248, 113, 113, 0.15);
+  --code-bg: #0b1220;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { height: 100%; }
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100%;
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+a { color: var(--link); }
+
+/* ---------- Header ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px var(--shadow);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .topbar { background: var(--surface); }
+}
+.header-row {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 20px; flex-wrap: wrap;
+  max-width: 960px; margin: 0 auto;
+}
+.brand { display: flex; align-items: center; gap: 12px; flex: 0 0 auto; }
+.logo {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: #fff; font-size: 17px; letter-spacing: 0.5px;
+  flex: 0 0 auto;
+}
+.title-block h1 { font-size: 18px; font-weight: 700; line-height: 1.15; }
+.title-block .subtitle { font-size: 12px; color: var(--text-secondary); margin-top: 1px; }
+.header-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
+
+.icon-btn, .ghost-link {
+  height: 40px; min-width: 40px; padding: 0 12px; flex: 0 0 auto;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface); color: var(--text-primary);
+  cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  font-family: inherit; font-size: 13px; font-weight: 600;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+.icon-btn:hover, .ghost-link:hover { border-color: var(--focus); color: var(--focus); }
+.icon-btn:focus-visible, .ghost-link:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus-ring); }
+:root[data-theme="dark"] .sun { display: block; }
+:root[data-theme="dark"] .moon { display: none; }
+.sun { display: none; }
+.moon { display: block; }
+
+/* ---------- Layout ---------- */
+main { max-width: 960px; margin: 0 auto; padding: 18px 20px 80px; }
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 18px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px var(--shadow);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .card { background: var(--surface); }
+}
+.card > h2 {
+  font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;
+  color: var(--text-secondary); margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.step-n {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--accent); color: var(--surface);
+  font-size: 11px; font-weight: 800;
+}
+.hint { font-size: 12.5px; color: var(--text-secondary); margin-top: 4px; }
+
+/* ---------- Status banner ---------- */
+.banner {
+  display: flex; align-items: flex-start; gap: 10px;
+  border-radius: 12px; padding: 10px 14px; font-size: 13px;
+  border: 1px solid var(--border);
+}
+.banner.info { background: var(--hit-bg); }
+.banner.ok { background: var(--ok-bg); color: var(--ok); border-color: transparent; }
+.banner.warn { background: var(--warn-bg); color: var(--warn); border-color: transparent; }
+.banner.err { background: var(--err-bg); color: var(--err); border-color: transparent; }
+.banner b { font-weight: 800; }
+
+/* ---------- Form controls ---------- */
+label { display: block; font-size: 13px; font-weight: 700; margin: 0 0 5px; }
+.field { margin-bottom: 14px; }
+.req { color: var(--err); }
+select, input[type="text"], textarea {
+  width: 100%; font-family: inherit; font-size: 16px;
+  padding: 10px 12px; min-height: 44px;
+  border: 1px solid var(--border); border-radius: 10px;
+  background: var(--surface); color: var(--text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+textarea { min-height: 160px; resize: vertical; font-size: 14px; line-height: 1.5; }
+select:focus-visible, input:focus-visible, textarea:focus-visible,
+select:focus, input:focus, textarea:focus {
+  outline: none; border-color: var(--focus); box-shadow: 0 0 0 3px var(--focus-ring);
+}
+.checkline { display: flex; align-items: flex-start; gap: 10px; }
+.checkline input[type="checkbox"] { width: 20px; height: 20px; min-height: 0; margin-top: 2px; flex: 0 0 auto; accent-color: var(--focus); }
+.checkline label { margin: 0; font-weight: 600; }
+.checkline .hint { margin-top: 2px; }
+
+/* ---------- Cascading picker ---------- */
+.pickers { display: flex; flex-direction: column; gap: 10px; }
+.picker-row label { font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.4px; }
+.breadcrumb {
+  margin-top: 12px; padding: 10px 12px;
+  background: var(--code-bg); border-radius: 10px;
+  font-size: 13.5px; word-break: break-word;
+}
+.breadcrumb .bc-sep { color: var(--text-secondary); padding: 0 4px; }
+.breadcrumb .bc-target { font-weight: 800; color: var(--focus); }
+.breadcrumb .bc-empty { color: var(--text-secondary); font-style: italic; }
+
+/* ---------- Preview ---------- */
+pre.md-line {
+  background: var(--code-bg); border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 14px; overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 13px; white-space: pre; tab-size: 2;
+}
+.outline { margin-top: 12px; }
+.outline .ol-parent { font-weight: 800; font-size: 13.5px; margin-bottom: 6px; }
+ul.ol-list { list-style: none; padding-left: 6px; }
+ul.ol-list li {
+  position: relative; padding: 3px 0 3px 20px; font-size: 13.5px;
+  color: var(--text-secondary); word-break: break-word;
+}
+ul.ol-list li::before { content: "\2500"; position: absolute; left: 0; color: var(--border); }
+ul.ol-list li.ol-new {
+  color: var(--text-primary); font-weight: 700;
+  background: var(--ok-bg); border-radius: 6px; padding-left: 20px;
+}
+ul.ol-list li.ol-new::before { content: "\002B"; color: var(--ok); font-weight: 800; }
+.ol-badge { font-size: 10.5px; font-weight: 800; color: var(--ok); text-transform: uppercase; letter-spacing: 0.4px; margin-left: 6px; }
+
+/* ---------- Buttons ---------- */
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; }
+button.btn {
+  font-family: inherit; font-size: 14px; font-weight: 700;
+  padding: 11px 16px; min-height: 44px; border-radius: 10px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text-primary);
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: border-color 0.15s ease, transform 0.1s ease, background 0.15s ease;
+}
+button.btn:hover:not(:disabled) { border-color: var(--focus); transform: translateY(-1px); }
+button.btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus-ring); }
+button.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+button.btn.primary { background: var(--accent); color: var(--surface); border-color: transparent; }
+button.btn.primary:hover:not(:disabled) { filter: brightness(1.08); }
+
+/* ---------- Details / PR ---------- */
+details.pr { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+details.pr > summary {
+  cursor: pointer; padding: 14px 16px; font-weight: 700; font-size: 14px;
+  list-style: none; display: flex; align-items: center; gap: 8px;
+  background: var(--surface);
+}
+details.pr > summary::-webkit-details-marker { display: none; }
+details.pr > summary::before { content: "\25B8"; color: var(--text-secondary); transition: transform 0.15s ease; }
+details.pr[open] > summary::before { transform: rotate(90deg); }
+.pr-body { padding: 0 16px 16px; }
+.token-warn {
+  font-size: 12.5px; background: var(--warn-bg); color: var(--warn);
+  border-radius: 10px; padding: 10px 12px; margin: 6px 0 12px;
+}
+.pr-status { margin-top: 12px; font-size: 13px; word-break: break-word; }
+.pr-status ol { margin: 8px 0 0 18px; }
+.pr-status li { margin: 2px 0; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.foot { text-align: center; font-size: 12px; color: var(--text-secondary); margin-top: 8px; }
+.foot code { background: var(--code-bg); padding: 1px 5px; border-radius: 5px; font-size: 11.5px; }
+
+@media (max-width: 560px) {
+  .title-block .subtitle { display: none; }
+  .header-actions .lbl { display: none; }
+  main { padding: 14px 14px 70px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="header-row">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">BC</div>
+      <div class="title-block">
+        <h1>Compose Entry</h1>
+        <div class="subtitle">Add a recommendation to the breast-cancer decision tree</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a class="ghost-link" href="index.html" title="Back to the mind map">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M19 12H5"></path><path d="m12 19-7-7 7-7"></path></svg>
+        <span class="lbl">Map</span>
+      </a>
+      <button class="icon-btn" id="themeToggle" type="button" title="Toggle light or dark theme" aria-label="Toggle light or dark theme">
+        <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>
+        <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Source status -->
+  <div class="card" id="sourceCard">
+    <h2>Source file</h2>
+    <div id="sourceBanner" class="banner info" role="status" aria-live="polite">Loading cancer_workflow.md&hellip;</div>
+    <div id="pasteWrap" class="field" style="display:none; margin-top:12px;">
+      <label for="pasteArea">Paste the contents of <b>cancer_workflow.md</b> here, then press Load</label>
+      <div class="hint" style="margin:0 0 8px;">The file could not be fetched automatically (this happens when you open the page directly from disk instead of the website). Copy the raw markdown from the repository and paste it below.</div>
+      <textarea id="pasteArea" spellcheck="false" placeholder="---&#10;title: Cancer Management&#10;...&#10;- Breast Cancer&#10;  - ..."></textarea>
+      <div class="btn-row" style="margin-top:10px;">
+        <button class="btn primary" id="pasteLoad" type="button">Load pasted markdown</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 1: choose parent -->
+  <div class="card" id="parentCard" hidden>
+    <h2><span class="step-n">1</span> Choose where it goes</h2>
+    <div class="hint" style="margin-bottom:12px;">Drill down to the exact heading the new entry should sit under. Stop at any level &mdash; the deepest choice becomes the parent.</div>
+    <div class="pickers" id="pickers" aria-live="polite"></div>
+    <div class="breadcrumb" id="breadcrumb" aria-live="polite"></div>
+  </div>
+
+  <!-- Step 2: the entry -->
+  <div class="card" id="entryCard" hidden>
+    <h2><span class="step-n">2</span> Write the entry</h2>
+    <div class="field">
+      <label for="entryText">Entry text <span class="req" aria-hidden="true">*</span></label>
+      <input type="text" id="entryText" autocomplete="off"
+             placeholder="e.g. Ribociclib approved for N1 disease"
+             aria-describedby="entryTextHint">
+      <div class="hint" id="entryTextHint">Plain wording. Do not add dashes or asterisks &mdash; formatting is applied for you.</div>
+    </div>
+    <div class="field">
+      <label for="entryTags">Trial / evidence tag(s)</label>
+      <input type="text" id="entryTags" autocomplete="off"
+             placeholder="e.g. NATALEE, MonarchE"
+             aria-describedby="entryTagsHint">
+      <div class="hint" id="entryTagsHint">Optional. Comma-separated. Each becomes a bold evidence tag (<b>**NATALEE**</b>).</div>
+    </div>
+    <div class="field">
+      <div class="checkline">
+        <input type="checkbox" id="isRec" checked>
+        <div>
+          <label for="isRec">Treatment recommendation</label>
+          <div class="hint">Checked adds the actionable <code>[x]</code> marker (a green check on the map). Uncheck to add a plain structural heading (a subtype, stage, line or therapy class).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 3: preview -->
+  <div class="card" id="previewCard" hidden>
+    <h2><span class="step-n">3</span> Preview</h2>
+    <label>Formatted markdown line</label>
+    <pre class="md-line" id="mdLine" aria-live="polite"></pre>
+    <div id="validateBanner" class="banner ok" role="status" aria-live="polite" style="margin-top:10px;"></div>
+    <div class="outline" id="outline"></div>
+  </div>
+
+  <!-- Step 4: outputs -->
+  <div class="card" id="outputCard" hidden>
+    <h2><span class="step-n">4</span> Save it back</h2>
+    <div class="hint" style="margin-bottom:12px;">No account or install needed for the first three. The file stays the single source of truth &mdash; once it lands on <code>main</code>, the site rebuilds itself.</div>
+    <div class="btn-row">
+      <button class="btn" id="copyEntry" type="button">Copy entry line</button>
+      <button class="btn primary" id="downloadFile" type="button">Download updated cancer_workflow.md</button>
+      <button class="btn" id="copyFile" type="button">Copy full file</button>
+    </div>
+    <div id="outMsg" class="pr-status" role="status" aria-live="polite"></div>
+
+    <div style="margin-top:16px;">
+      <details class="pr" id="prDetails">
+        <summary>Advanced: open a Pull Request on GitHub</summary>
+        <div class="pr-body">
+          <p class="hint" style="margin:8px 0 0;">For users comfortable with GitHub. This commits the change to a new branch and opens a pull request against <b>main</b> &mdash; no terminal required. Merging it triggers the site rebuild automatically.</p>
+          <div class="token-warn">
+            <b>Token safety.</b> Paste a <b>fine-grained Personal Access Token</b> scoped to <b>Elkhanany/cancer_workflow</b> with <b>Contents: Read&nbsp;and&nbsp;write</b> and <b>Pull requests: Read&nbsp;and&nbsp;write</b>. It is stored only in this browser's localStorage and sent only to api.github.com over HTTPS. It is never placed in a URL or logged. Use <b>Forget token</b> on a shared device.
+          </div>
+          <div class="field">
+            <label for="ghToken">GitHub token</label>
+            <input type="password" id="ghToken" autocomplete="off" spellcheck="false" placeholder="github_pat_&hellip;">
+          </div>
+          <div class="field">
+            <label for="prTitle">Pull request title</label>
+            <input type="text" id="prTitle" autocomplete="off" placeholder="Add entry under &hellip;">
+          </div>
+          <div class="btn-row">
+            <button class="btn primary" id="createPr" type="button">Create pull request</button>
+            <button class="btn" id="forgetToken" type="button">Forget token</button>
+          </div>
+          <div id="prStatus" class="pr-status" role="status" aria-live="polite"></div>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <p class="foot">Single source of truth: <code>cancer_workflow.md</code> &middot; a push to <code>main</code> auto-rebuilds <code>index.html</code> via GitHub Actions.</p>
+</main>
+
+<script>
+"use strict";
+(function () {
+  /* ======================================================================
+   * THEME TOGGLE (shares 'cw-theme' with the main site)
+   * ==================================================================== */
+  try {
+    var tbtn = document.getElementById('themeToggle');
+    if (tbtn) tbtn.addEventListener('click', function () {
+      var root = document.documentElement;
+      var dark = root.getAttribute('data-theme') === 'dark';
+      root.setAttribute('data-theme', dark ? 'light' : 'dark');
+      try { localStorage.setItem('cw-theme', dark ? 'light' : 'dark'); } catch (e) {}
+    });
+  } catch (e) {}
+
+  /* ======================================================================
+   * INSERTION ALGORITHM  (pure, unit-testable, no DOM)
+   * Mirrors the validated Node implementation exactly.
+   * ==================================================================== */
+  var NODE_RE = /^(\s*)- (.*)$/;
+  function isBlank(line) { return line == null || line.trim() === ''; }
+  function detectEol(text) { return text.indexOf('\r\n') >= 0 ? '\r\n' : '\n'; }
+
+  function findFrontmatter(lines) {
+    var fmStart = -1, fmEnd = -1, i, j;
+    for (i = 0; i < lines.length; i++) {
+      if (/^---\s*$/.test(lines[i])) { fmStart = i; break; }
+      if (lines[i].trim() !== '') break; // content before any fence => no frontmatter
+    }
+    if (fmStart !== -1) {
+      for (j = fmStart + 1; j < lines.length; j++) {
+        if (/^---\s*$/.test(lines[j])) { fmEnd = j; break; }
+      }
+      if (fmEnd === -1) fmStart = -1; // unterminated => treat as none
+    }
+    return { fmStart: fmStart, fmEnd: fmEnd };
+  }
+
+  function parse(text) {
+    var eol = detectEol(text);
+    var lines = text.split(eol);
+    var fm = findFrontmatter(lines);
+    var startIdx = fm.fmEnd >= 0 ? fm.fmEnd + 1 : 0;
+    var nodes = [], i, m;
+    for (i = startIdx; i < lines.length; i++) {
+      m = NODE_RE.exec(lines[i]);
+      if (!m) continue; // blank & wrapped-continuation lines are NOT nodes
+      var indent = m[1].length;
+      var textPart = m[2];
+      nodes.push({
+        id: i, lineIndex: i, indent: indent, depth: indent / 2, text: textPart,
+        isRecommendation: textPart.slice(0, 4) === '[x] ',
+        children: [], parent: null
+      });
+    }
+    var stack = [], k, n;
+    for (k = 0; k < nodes.length; k++) {
+      n = nodes[k];
+      while (stack.length && stack[stack.length - 1].indent >= n.indent) stack.pop();
+      if (stack.length) { n.parent = stack[stack.length - 1]; stack[stack.length - 1].children.push(n); }
+      stack.push(n);
+    }
+    var roots = nodes.filter(function (x) { return x.parent === null; });
+    return { eol: eol, lines: lines, fm: fm, nodes: nodes, roots: roots };
+  }
+
+  // spec rule: a direct child of P is indented P.indent + 2 spaces. That is P's
+  // CommonMark content column, i.e. exactly what markmap re-parses as a child of P.
+  function newIndentFor(P) { return P.indent + 2; }
+
+  function computeInsertPos(lines, P) {
+    var pIdx = P.lineIndex, pIndent = P.indent, end = lines.length, i, m;
+    for (i = pIdx + 1; i < lines.length; i++) {
+      m = NODE_RE.exec(lines[i]);
+      if (m && m[1].length <= pIndent) { end = i; break; } // first sibling/ancestor node
+    }
+    var pos = end; // just past P's subtree
+    while (pos > pIdx + 1 && isBlank(lines[pos - 1])) pos--; // skip the trailing-blank gap
+    return pos;
+  }
+
+  function buildLine(P, userText, tags, isRec) {
+    var indentStr = new Array(newIndentFor(P) + 1).join(' ');
+    var tagStr = (tags && tags.length) ? ' ' + tags.map(function (t) { return '**' + t + '**'; }).join(' ') : '';
+    return indentStr + '- ' + (isRec ? '[x] ' : '') + userText + tagStr;
+  }
+
+  function insertEntry(parsed, P, userText, tags, isRec) {
+    var lines = parsed.lines.slice();
+    var newLine = buildLine(P, userText, tags, isRec);
+    var pos = computeInsertPos(lines, P);
+    lines.splice(pos, 0, newLine);
+    return { text: lines.join(parsed.eol), pos: pos, newLine: newLine };
+  }
+
+  // Locate a node in a freshly parsed tree by the sequence of texts from a
+  // top-level (depth-1) node down to P. Used by the PR path against fresh content.
+  function findByPath(parsed, pathTexts) {
+    if (!pathTexts.length) return null;
+    var level = parsed.roots.reduce(function (acc, r) { return acc.concat(r.children || []); }, []);
+    // roots here is the single "Breast Cancer" node; its children are the depth-1 branches.
+    // (Fallback: if roots themselves are the branches, search them too.)
+    var pool = level.length ? level : parsed.roots;
+    var node = null, i, j, found;
+    for (i = 0; i < pathTexts.length; i++) {
+      found = null;
+      for (j = 0; j < pool.length; j++) {
+        if (pool[j].text === pathTexts[i]) { found = pool[j]; break; }
+      }
+      if (!found) return null;
+      node = found;
+      pool = node.children || [];
+    }
+    return node;
+  }
+
+  /* ======================================================================
+   * SANITISERS
+   * ==================================================================== */
+  function cleanEntryText(raw) {
+    return String(raw == null ? '' : raw)
+      .replace(/[\r\n\t]+/g, ' ')          // one line only
+      .replace(/^\s*-\s+/, '')             // user typed a leading dash
+      .replace(/^\s*\[[ xX]\]\s*/, '')     // user typed a checkbox
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+  function cleanTags(raw) {
+    return String(raw == null ? '' : raw).split(',')
+      .map(function (t) { return t.replace(/[\r\n\t]+/g, ' ').replace(/^[\s*]+|[\s*]+$/g, '').trim(); })
+      .filter(function (t) { return t.length > 0; });
+  }
+  // Human-readable label for the outline (safe: result is assigned via textContent).
+  function prettify(text) {
+    return String(text)
+      .replace(/^\[x\]\s*/, '')
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/[*_`]/g, '')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  /* ======================================================================
+   * STATE + DOM
+   * ==================================================================== */
+  var S = { parsed: null, rawText: '', path: [] /* node objects picked, depth1..P */ };
+
+  var el = {
+    sourceBanner: document.getElementById('sourceBanner'),
+    pasteWrap: document.getElementById('pasteWrap'),
+    pasteArea: document.getElementById('pasteArea'),
+    pasteLoad: document.getElementById('pasteLoad'),
+    parentCard: document.getElementById('parentCard'),
+    entryCard: document.getElementById('entryCard'),
+    previewCard: document.getElementById('previewCard'),
+    outputCard: document.getElementById('outputCard'),
+    pickers: document.getElementById('pickers'),
+    breadcrumb: document.getElementById('breadcrumb'),
+    entryText: document.getElementById('entryText'),
+    entryTags: document.getElementById('entryTags'),
+    isRec: document.getElementById('isRec'),
+    mdLine: document.getElementById('mdLine'),
+    validateBanner: document.getElementById('validateBanner'),
+    outline: document.getElementById('outline'),
+    copyEntry: document.getElementById('copyEntry'),
+    downloadFile: document.getElementById('downloadFile'),
+    copyFile: document.getElementById('copyFile'),
+    outMsg: document.getElementById('outMsg'),
+    ghToken: document.getElementById('ghToken'),
+    prTitle: document.getElementById('prTitle'),
+    createPr: document.getElementById('createPr'),
+    forgetToken: document.getElementById('forgetToken'),
+    prStatus: document.getElementById('prStatus')
+  };
+
+  function setBanner(node, cls, htmlSafeText) {
+    node.className = 'banner ' + cls;
+    node.textContent = htmlSafeText; // never innerHTML with dynamic strings
+  }
+
+  function currentParent() { return S.path.length ? S.path[S.path.length - 1] : null; }
+
+  /* ----------------------------------------------------------------------
+   * SOURCE LOADING
+   * -------------------------------------------------------------------- */
+  function onLoaded(text, viaLabel) {
+    try {
+      S.rawText = text;
+      S.parsed = parse(text);
+      if (!S.parsed.nodes.length) {
+        setBanner(el.sourceBanner, 'err', 'No tree nodes found in the file. Check that you pasted the full cancer_workflow.md.');
+        return;
+      }
+      setBanner(el.sourceBanner, 'ok', 'Loaded ' + viaLabel + ' — ' + S.parsed.nodes.length + ' nodes ready. Now choose where the entry goes.');
+      el.pasteWrap.style.display = 'none';
+      el.parentCard.hidden = false;
+      el.entryCard.hidden = false;
+      el.previewCard.hidden = false;
+      el.outputCard.hidden = false;
+      S.path = [];
+      buildPickers();
+      updatePreview();
+    } catch (e) {
+      setBanner(el.sourceBanner, 'err', 'Could not parse the markdown: ' + (e && e.message ? e.message : e));
+    }
+  }
+
+  function showPasteFallback(reason) {
+    setBanner(el.sourceBanner, 'warn', reason);
+    el.pasteWrap.style.display = 'block';
+  }
+
+  function load() {
+    // Only attempt fetch over http/https (file:// will fail CORS/opaque).
+    var proto = location.protocol;
+    if (proto !== 'http:' && proto !== 'https:') {
+      showPasteFallback('Opened from disk (' + proto + '). Automatic loading needs the hosted site; paste the file below to continue.');
+      return;
+    }
+    var done = false;
+    var timer = setTimeout(function () {
+      if (done) return; done = true;
+      showPasteFallback('Loading timed out. Paste the file below to continue.');
+    }, 12000);
+    fetch('cancer_workflow.md', { cache: 'no-store' })
+      .then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.text();
+      })
+      .then(function (text) {
+        if (done) return; done = true; clearTimeout(timer);
+        onLoaded(text, 'cancer_workflow.md');
+      })
+      .catch(function (err) {
+        if (done) return; done = true; clearTimeout(timer);
+        showPasteFallback('Could not fetch cancer_workflow.md (' + (err && err.message ? err.message : err) + '). Paste the file below to continue.');
+      });
+  }
+
+  if (el.pasteLoad) el.pasteLoad.addEventListener('click', function () {
+    var t = el.pasteArea.value;
+    if (!t || !t.trim()) { setBanner(el.sourceBanner, 'err', 'Nothing pasted yet.'); return; }
+    onLoaded(t, 'pasted text');
+  });
+
+  /* ----------------------------------------------------------------------
+   * CASCADING PICKER
+   * -------------------------------------------------------------------- */
+  function topLevelNodes() {
+    // Single root "Breast Cancer" -> its children are the six branches + working notes.
+    // If the file had multiple roots, offer them directly.
+    if (S.parsed.roots.length === 1 && (S.parsed.roots[0].children || []).length) {
+      return S.parsed.roots[0].children;
+    }
+    return S.parsed.roots;
+  }
+
+  function makeSelect(level, options, selectedNode, parentLabel) {
+    var row = document.createElement('div');
+    row.className = 'picker-row field';
+    row.style.marginBottom = '0';
+
+    var lab = document.createElement('label');
+    var selId = 'picker-' + level;
+    lab.setAttribute('for', selId);
+    lab.textContent = level === 0 ? 'Branch' : ('Under “' + prettify(parentLabel) + '”');
+    row.appendChild(lab);
+
+    var sel = document.createElement('select');
+    sel.id = selId;
+
+    var ph = document.createElement('option');
+    ph.value = '';
+    ph.textContent = level === 0 ? '— Select a branch —' : ('➕  Add directly here (under ' + prettify(parentLabel) + ')');
+    sel.appendChild(ph);
+
+    options.forEach(function (node) {
+      var opt = document.createElement('option');
+      opt.value = String(node.id);
+      var childCount = (node.children || []).length;
+      opt.textContent = prettify(node.text) + (childCount ? '  (' + childCount + ')' : '');
+      if (selectedNode && node.id === selectedNode.id) opt.selected = true;
+      sel.appendChild(opt);
+    });
+
+    sel.addEventListener('change', function () {
+      onPick(level, sel.value);
+    });
+    row.appendChild(sel);
+    el.pickers.appendChild(row);
+  }
+
+  function nodeById(id) {
+    var want = Number(id);
+    for (var i = 0; i < S.parsed.nodes.length; i++) if (S.parsed.nodes[i].id === want) return S.parsed.nodes[i];
+    return null;
+  }
+
+  function onPick(level, value) {
+    if (value === '') { S.path.length = level; }        // "add here" -> parent is the level above
+    else { S.path[level] = nodeById(value); S.path.length = level + 1; }
+    buildPickers();
+    updatePreview();
+  }
+
+  function buildPickers() {
+    el.pickers.innerHTML = '';
+    var children = topLevelNodes();
+    var level = 0;
+    while (true) {
+      var selected = S.path[level];
+      var parentLabel = level === 0 ? '' : S.path[level - 1].text;
+      makeSelect(level, children, selected, parentLabel);
+      if (!selected) break;                              // active choice pending here
+      if (!selected.children || !selected.children.length) break; // leaf -> no deeper select
+      children = selected.children;
+      level++;
+    }
+    renderBreadcrumb();
+  }
+
+  function renderBreadcrumb() {
+    el.breadcrumb.innerHTML = '';
+    var rootLabel = (S.parsed.roots[0] && S.parsed.roots.length === 1) ? prettify(S.parsed.roots[0].text) : 'Tree';
+    var parts = [rootLabel].concat(S.path.map(function (n) { return prettify(n.text); }));
+    if (!S.path.length) {
+      var span = document.createElement('span');
+      span.className = 'bc-empty';
+      span.textContent = rootLabel + ' ›  (choose a branch above)';
+      el.breadcrumb.appendChild(span);
+      return;
+    }
+    parts.forEach(function (txt, i) {
+      if (i > 0) {
+        var sep = document.createElement('span');
+        sep.className = 'bc-sep'; sep.textContent = '›';
+        el.breadcrumb.appendChild(sep);
+      }
+      var s = document.createElement('span');
+      if (i === parts.length - 1) s.className = 'bc-target';
+      s.textContent = txt;
+      el.breadcrumb.appendChild(s);
+    });
+  }
+
+  /* ----------------------------------------------------------------------
+   * PREVIEW + LIVE VALIDATION
+   * -------------------------------------------------------------------- */
+  function currentEntry() {
+    return {
+      text: cleanEntryText(el.entryText.value),
+      tags: cleanTags(el.entryTags.value),
+      isRec: !!el.isRec.checked
+    };
+  }
+
+  function updatePreview() {
+    var P = currentParent();
+    var e = currentEntry();
+
+    if (!P) {
+      el.mdLine.textContent = '';
+      setBanner(el.validateBanner, 'info', 'Pick a parent above to see the formatted line.');
+      el.outline.innerHTML = '';
+      updateOutputsEnabled(false);
+      return;
+    }
+    var line = buildLine(P, e.text || '…', e.tags, e.isRec);
+    el.mdLine.textContent = line;
+
+    if (!e.text) {
+      setBanner(el.validateBanner, 'warn', 'Add the entry text (step 2) to enable saving.');
+      renderOutline(P, null);
+      updateOutputsEnabled(false);
+      return;
+    }
+
+    // Client-side sanity: splice into a copy and re-parse; the inserted line's
+    // indentation-parent must be P. (markmap uses the same content-column rule.)
+    var ok = false, detail = '';
+    try {
+      var out = insertEntry(S.parsed, P, e.text, e.tags, e.isRec);
+      var re = parse(out.text);
+      var inserted = null, i;
+      for (i = 0; i < re.nodes.length; i++) {
+        if (re.nodes[i].lineIndex === out.pos) { inserted = re.nodes[i]; break; }
+      }
+      if (inserted && inserted.parent && inserted.parent.text === P.text &&
+          inserted.parent.children[inserted.parent.children.length - 1] === inserted &&
+          inserted.indent === newIndentFor(P)) {
+        ok = true;
+        detail = 'Validated: parses cleanly and attaches as the last child of “' + prettify(P.text) + '”.';
+      } else {
+        detail = 'Heads up: this parent has irregular indentation in the source; the entry will still be added but may render beside its neighbours rather than nested. Use Download and review before committing.';
+      }
+    } catch (err) {
+      detail = 'Validation error: ' + (err && err.message ? err.message : err);
+    }
+    setBanner(el.validateBanner, ok ? 'ok' : 'warn', detail);
+    renderOutline(P, e);
+    updateOutputsEnabled(true);
+  }
+
+  function renderOutline(P, e) {
+    el.outline.innerHTML = '';
+    var head = document.createElement('div');
+    head.className = 'ol-parent';
+    head.textContent = prettify(P.text) + (P.isRecommendation ? '' : '') + '  — children:';
+    el.outline.appendChild(head);
+
+    var ul = document.createElement('ul');
+    ul.className = 'ol-list';
+    (P.children || []).forEach(function (c) {
+      var li = document.createElement('li');
+      li.textContent = prettify(c.text);
+      ul.appendChild(li);
+    });
+    if (e && e.text) {
+      var li2 = document.createElement('li');
+      li2.className = 'ol-new';
+      li2.textContent = (e.isRec ? '✓ ' : '') + e.text + (e.tags.length ? '  ' + e.tags.join(', ') : '');
+      var badge = document.createElement('span');
+      badge.className = 'ol-badge'; badge.textContent = 'new';
+      li2.appendChild(badge);
+      ul.appendChild(li2);
+    }
+    if (!ul.children.length) {
+      var li3 = document.createElement('li');
+      li3.textContent = '(no existing children — this will be the first)';
+      ul.appendChild(li3);
+    }
+    el.outline.appendChild(ul);
+  }
+
+  function readyToSave() {
+    var P = currentParent(); var e = currentEntry();
+    return !!(P && e.text);
+  }
+  function updateOutputsEnabled(on) {
+    var ready = on && readyToSave();
+    el.copyEntry.disabled = !ready;
+    el.downloadFile.disabled = !ready;
+    el.copyFile.disabled = !ready;
+    el.createPr.disabled = !ready;
+  }
+
+  ['input', 'change'].forEach(function (ev) {
+    el.entryText.addEventListener(ev, updatePreview);
+    el.entryTags.addEventListener(ev, updatePreview);
+    el.isRec.addEventListener(ev, updatePreview);
+  });
+
+  /* ----------------------------------------------------------------------
+   * OUTPUTS
+   * -------------------------------------------------------------------- */
+  function buildOutputs() {
+    var P = currentParent(); var e = currentEntry();
+    if (!P || !e.text) return null;
+    return insertEntry(S.parsed, P, e.text, e.tags, e.isRec);
+  }
+
+  function copyText(str, okMsg) {
+    function fallback() {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = str; ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute'; ta.style.left = '-9999px';
+        document.body.appendChild(ta); ta.select();
+        var done = document.execCommand('copy');
+        document.body.removeChild(ta);
+        setBanner(el.outMsg, done ? 'ok' : 'err', done ? okMsg : 'Copy failed — select the text manually.');
+      } catch (e2) {
+        setBanner(el.outMsg, 'err', 'Copy failed — select the text manually.');
+      }
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(str).then(function () {
+        setBanner(el.outMsg, 'ok', okMsg);
+      }, fallback);
+    } else { fallback(); }
+  }
+
+  el.copyEntry.addEventListener('click', function () {
+    var out = buildOutputs(); if (!out) return;
+    copyText(out.newLine, 'Entry line copied to the clipboard.');
+  });
+  el.copyFile.addEventListener('click', function () {
+    var out = buildOutputs(); if (!out) return;
+    copyText(out.text, 'Full updated file copied to the clipboard. Paste it over cancer_workflow.md.');
+  });
+  el.downloadFile.addEventListener('click', function () {
+    var out = buildOutputs(); if (!out) return;
+    try {
+      var blob = new Blob([out.text], { type: 'text/markdown;charset=utf-8' });
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = 'cancer_workflow.md';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+      setBanner(el.outMsg, 'ok', 'Downloaded cancer_workflow.md. Replace the file in the repo (or attach it to a commit) to publish.');
+    } catch (e) {
+      setBanner(el.outMsg, 'err', 'Download failed: ' + (e && e.message ? e.message : e));
+    }
+  });
+
+  /* ----------------------------------------------------------------------
+   * GITHUB PULL REQUEST  (optional, token-gated)
+   * -------------------------------------------------------------------- */
+  var GH = { owner: 'Elkhanany', repo: 'cancer_workflow', base: 'main', file: 'cancer_workflow.md', api: 'https://api.github.com' };
+  var TOKEN_KEY = 'cw-gh-token';
+
+  try {
+    var saved = localStorage.getItem(TOKEN_KEY);
+    if (saved) el.ghToken.value = saved;
+  } catch (e) {}
+
+  el.forgetToken.addEventListener('click', function () {
+    try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
+    el.ghToken.value = '';
+    setBanner(el.prStatus, 'ok', 'Token removed from this browser.');
+  });
+
+  function b64EncodeUnicode(str) {
+    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (m, p1) {
+      return String.fromCharCode('0x' + p1);
+    }));
+  }
+  function b64DecodeUnicode(b64) {
+    var clean = String(b64).replace(/\s+/g, '');
+    return decodeURIComponent(Array.prototype.map.call(atob(clean), function (c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+  }
+
+  function ghFetch(token, path, opts) {
+    opts = opts || {};
+    var headers = {
+      'Authorization': 'Bearer ' + token,
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28'
+    };
+    if (opts.body) headers['Content-Type'] = 'application/json';
+    return fetch(GH.api + path, { method: opts.method || 'GET', headers: headers, body: opts.body || undefined })
+      .then(function (r) {
+        return r.text().then(function (t) {
+          var json = null; try { json = t ? JSON.parse(t) : {}; } catch (e) { json = { raw: t }; }
+          if (!r.ok) {
+            var msg = (json && json.message) ? json.message : ('HTTP ' + r.status);
+            var err = new Error(msg); err.status = r.status; throw err;
+          }
+          return json;
+        });
+      });
+  }
+
+  function prLog(steps) {
+    el.prStatus.className = 'pr-status';
+    el.prStatus.innerHTML = '';
+    var ol = document.createElement('ol');
+    steps.forEach(function (s) {
+      var li = document.createElement('li');
+      li.textContent = s; // textContent: safe
+      ol.appendChild(li);
+    });
+    el.prStatus.appendChild(ol);
+  }
+
+  el.createPr.addEventListener('click', function () {
+    var P = currentParent(); var e = currentEntry();
+    if (!P || !e.text) { setBanner(el.prStatus, 'warn', 'Complete steps 1 and 2 first.'); return; }
+    var token = (el.ghToken.value || '').trim();
+    if (!token) { setBanner(el.prStatus, 'warn', 'Paste a GitHub token above (or just use Download / Copy — no token needed).'); return; }
+    try { localStorage.setItem(TOKEN_KEY, token); } catch (e2) {}
+
+    // Path (depth1..P texts) used to relocate P in the fresh file so we never clobber.
+    var pathTexts = S.path.map(function (n) { return n.text; });
+    var title = (el.prTitle.value || '').trim() || ('Add entry under ' + prettify(P.text));
+    var branch = 'compose-entry-' + Date.now();
+    var steps = [];
+    function push(s) { steps.push(s); prLog(steps); }
+
+    el.createPr.disabled = true;
+    push('Reading latest main…');
+
+    var mainSha, fileSha, updatedText;
+    ghFetch(token, '/repos/' + GH.owner + '/' + GH.repo + '/git/ref/heads/' + GH.base)
+      .then(function (ref) {
+        mainSha = ref.object && ref.object.sha;
+        if (!mainSha) throw new Error('could not read main ref');
+        push('Fetching current ' + GH.file + '…');
+        return ghFetch(token, '/repos/' + GH.owner + '/' + GH.repo + '/contents/' + encodeURIComponent(GH.file) + '?ref=' + GH.base);
+      })
+      .then(function (file) {
+        fileSha = file.sha;
+        var fresh = b64DecodeUnicode(file.content);
+        var freshParsed = parse(fresh);
+        var freshP = findByPath(freshParsed, pathTexts);
+        if (!freshP) throw new Error('the chosen parent could not be located in the latest file (it may have changed). Reload the page and try again, or use Download.');
+        var out = insertEntry(freshParsed, freshP, e.text, e.tags, e.isRec);
+        updatedText = out.text;
+        push('Creating branch ' + branch + '…');
+        return ghFetch(token, '/repos/' + GH.owner + '/' + GH.repo + '/git/refs', {
+          method: 'POST', body: JSON.stringify({ ref: 'refs/heads/' + branch, sha: mainSha })
+        });
+      })
+      .then(function () {
+        push('Committing the entry…');
+        return ghFetch(token, '/repos/' + GH.owner + '/' + GH.repo + '/contents/' + encodeURIComponent(GH.file), {
+          method: 'PUT', body: JSON.stringify({
+            message: title,
+            content: b64EncodeUnicode(updatedText),
+            sha: fileSha,
+            branch: branch
+          })
+        });
+      })
+      .then(function () {
+        push('Opening the pull request…');
+        return ghFetch(token, '/repos/' + GH.owner + '/' + GH.repo + '/pulls', {
+          method: 'POST', body: JSON.stringify({
+            title: title,
+            head: branch,
+            base: GH.base,
+            body: 'Added via the in-browser compose tool.\n\nParent: ' + pathTexts.map(prettify).join(' > ') + '\n\nEntry:\n\n    ' + buildLine(P, e.text, e.tags, e.isRec) + '\n\nMerging this rebuilds the site automatically (GitHub Actions regenerates index.html).'
+          })
+        });
+      })
+      .then(function (pr) {
+        el.createPr.disabled = false;
+        el.prStatus.className = 'pr-status';
+        el.prStatus.innerHTML = '';
+        var ok = document.createElement('div');
+        ok.className = 'banner ok';
+        ok.textContent = 'Pull request #' + pr.number + ' created. ';
+        var a = document.createElement('a');
+        a.href = pr.html_url;        // GitHub-controlled URL
+        a.target = '_blank'; a.rel = 'noopener noreferrer';
+        a.textContent = 'Open it on GitHub';
+        ok.appendChild(a);
+        el.prStatus.appendChild(ok);
+        var note = document.createElement('div');
+        note.className = 'hint'; note.style.marginTop = '8px';
+        note.textContent = 'Once reviewed and merged into main, the site rebuilds itself — no local build needed.';
+        el.prStatus.appendChild(note);
+      })
+      .catch(function (err) {
+        el.createPr.disabled = false;
+        var m = err && err.message ? err.message : String(err);
+        if (err && err.status === 401) m = 'Authentication failed (401). Check the token value.';
+        if (err && err.status === 403) m = 'Forbidden (403). The token lacks Contents/Pull-requests write on this repo, or you hit a rate limit.';
+        if (err && err.status === 404) m = 'Not found (404). The token cannot see Elkhanany/cancer_workflow — check its repository access.';
+        if (err && err.status === 422) m = 'Unprocessable (422). A branch/PR for this may already exist, or main changed — reload and retry. Detail: ' + m;
+        setBanner(el.prStatus, 'err', 'Failed: ' + m + '  (Your Download / Copy options still work without a token.)');
+      });
+  });
+
+  /* ----------------------------------------------------------------------
+   * GO
+   * -------------------------------------------------------------------- */
+  updateOutputsEnabled(false);
+  load();
+})();
+</script>
+</body>
+</html>
