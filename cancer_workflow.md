@@ -17,7 +17,12 @@ markmap:
         - [x] Chemoprevention with Tamoxifen (20mg vs babytam) or Raloxifen or AI (if intolerant to SERM)
     - Prevention in Hereditary High Risk
       - Management per mutation. [Myriad Gene Table](https://myriad.com/gene-table/)
+        - [x] PALB2 — high-penetrance breast gene, manage BRCA-like: annual mammogram + breast MRI from age 30, discuss risk-reducing mastectomy
+        - [x] ATM / CHEK2 (also NBN) — moderate penetrance: annual MRI + mammogram ± chemoprevention; routine RRM not indicated, manage by family history
+        - [x] BRIP1 / RAD51C / RAD51D — ovarian-predominant: consider risk-reducing salpingo-oophorectomy (RRSO), not breast RRM
 
+    - Contralateral Risk-Reducing Mastectomy (average risk)
+      - [x] In sporadic unilateral breast cancer, contralateral prophylactic mastectomy cuts contralateral cancer ~90% but does NOT lower breast-cancer mortality — reserve for high-penetrance carriers / patient risk-reduction goals **SEER 2024 (Giannakeas/Narod)**
     - Premalignant and High Risk Conditions
       - LCIS
         - [x] Most require excisional biopsy
@@ -126,6 +131,7 @@ markmap:
         - TARGETED THERAPY
           - [x] Ribociclib approved for N1 disease **NATALEE**
           - [x] Abemaciclib approved for N1 disease with Grade III **MonarchE**
+          - [x] Adjuvant palbociclib did NOT improve invasive DFS — not an adjuvant option (unlike abemaciclib/ribociclib) **PALLAS** & **PENELOPE-B**
           - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
         - BISPHOSPHONATES
           - [x] Benefit is moderate **EBCTG 2015**
@@ -157,6 +163,7 @@ markmap:
           - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is high, and ddAC/T is favoured  **EBCTG 2023** & **ABC 2024**
       - TARGETED THERAPY
           - [x] Abemaciclib approved for T3N1, N2 and N3 disease with **MonarchE**
+          - [x] Adjuvant palbociclib did NOT improve invasive DFS — not an adjuvant option (unlike abemaciclib/ribociclib) **PALLAS** & **PENELOPE-B**
           - [x] Ribociclib approved for T3N1, N2 and N3 disease **NATALEE**
           - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
       - BISPHOSPHONATES
@@ -183,8 +190,11 @@ markmap:
           - [x] OFS+Fulvestrant+ Capivasertib **CAPItello-291**
         - ESR1 mut
           - [x] OFS+Elacestrant **EMERALD**
+          - [x] OFS+Imlunestrant **EMBER-3**
+          - [x] OFS+Vepdegestrant **VERITAC-2**
         - HBOC/sBRCA/gPALB2
           - [x] Olaparib **OlympiAD** & **TBCRC048**
+          - [x] Talazoparib for germline BRCA1/2 HER2- disease **EMBRACA**
       - 3rd line
         - [x] Trastuzumab deruxtecan, IHC Ultralow or Low, given after ET **DB06**
       - 4th Line
@@ -207,9 +217,11 @@ markmap:
         - [x] Dostarlimab in dMMR/MSI-H 
         - [x] Larotrectinib in NTRK fusions
         - [x] Entrectinib in NTRK fusion
+        - [x] Repotrectinib in NTRK fusions (incl. TKI-pretreated) **TRIDENT-1**
         - [x] Dabrafenib/trametinib in BRAFV600E mutated
         - [x] Selpercatinib in RET fusion
         - [x] Neratinib in HER2/ERBB2 mutated
+        - [x] Trastuzumab deruxtecan in HER2 IHC 3+ solid tumours **DESTINY-PanTumor02**
 
 
 
@@ -239,6 +251,7 @@ markmap:
           - [x] Trials did not include this population. 
         - BISPHOSPHONATES
           - [x] Benefit is very small **EBCTG 2015**
+          - [x] Denosumab 60 mg SC q6mo for AI-associated bone loss reduces clinical fractures ~50%; modest secondary DFS signal (higher-dose D-CARE negative) **ABCSG-18**
 
       - pT1b N0 Grade II/III and pT1c N0
         - ENDOCRINE THERAPY
@@ -256,6 +269,7 @@ markmap:
           - [x] Trials did not include this population. 
         - BISPHOSPHONATES
           - [x] Benefit is very small **EBCTG 2015**
+          - [x] Denosumab 60 mg SC q6mo for AI-associated bone loss reduces clinical fractures ~50%; modest secondary DFS signal (higher-dose D-CARE negative) **ABCSG-18**
 
 
     - STAGE II
@@ -276,6 +290,7 @@ markmap:
           - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
         - BISPHOSPHONATES
           - [x] Benefit is small **EBCTG 2015**
+          - [x] Denosumab 60 mg SC q6mo for AI-associated bone loss reduces clinical fractures ~50%; modest secondary DFS signal (higher-dose D-CARE negative) **ABCSG-18**
 
         
       - pT1 N1, pT2 N1
@@ -293,9 +308,11 @@ markmap:
         - TARGETED THERAPY
           - [x] Ribociclib approved for N1 disease **NATALEE**
           - [x] Abemaciclib approved for N1 disease with Grade III **MonarchE**
+          - [x] Adjuvant palbociclib did NOT improve invasive DFS — not an adjuvant option (unlike abemaciclib/ribociclib) **PALLAS** & **PENELOPE-B**
           - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
         - BISPHOSPHONATES
           - [x] Benefit is moderate **EBCTG 2015**
+          - [x] Denosumab 60 mg SC q6mo for AI-associated bone loss reduces clinical fractures ~50%; modest secondary DFS signal (higher-dose D-CARE negative) **ABCSG-18**
 
 
 
@@ -312,6 +329,7 @@ markmap:
           - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
         - BISPHOSPHONATES
           - [x] Benefit is moderate **EBCTG 2015**
+          - [x] Denosumab 60 mg SC q6mo for AI-associated bone loss reduces clinical fractures ~50%; modest secondary DFS signal (higher-dose D-CARE negative) **ABCSG-18**
 
 
     - STAGE III
@@ -324,10 +342,12 @@ markmap:
           - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is high, and ddAC/T is favoured  **EBCTG 2023** & **ABC 2024**
       - TARGETED THERAPY
           - [x] Abemaciclib approved for T3N1, N2 and N3 disease with **MonarchE**
+          - [x] Adjuvant palbociclib did NOT improve invasive DFS — not an adjuvant option (unlike abemaciclib/ribociclib) **PALLAS** & **PENELOPE-B**
           - [x] Ribociclib approved for T3N1, N2 and N3 disease **NATALEE**
           - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
       - BISPHOSPHONATES
           - [x] Benefit is high **EBCTG 2015**
+          - [x] Denosumab 60 mg SC q6mo for AI-associated bone loss reduces clinical fractures ~50%; modest secondary DFS signal (higher-dose D-CARE negative) **ABCSG-18**
 
 
 
@@ -350,8 +370,11 @@ markmap:
           - [x] Fulvestrant+ Capivasertib **CAPItello-291**
         - ESR1 mut
           - [x] Elacestrant **EMERALD**
+          - [x] Imlunestrant **EMBER-3**
+          - [x] Vepdegestrant **VERITAC-2**
         - HBOC/sBRCA/gPALB2
           - [x] Olaparib **OlympiAD** & **TBCRC048**
+          - [x] Talazoparib for germline BRCA1/2 HER2- disease **EMBRACA**
       - 3rd line
         - [x] Trastuzumab deruxtecan, IHC Ultralow or Low, given after ET **DB06**
       - 4th Line
@@ -374,9 +397,11 @@ markmap:
         - [x] Dostarlimab in dMMR/MSI-H 
         - [x] Larotrectinib in NTRK fusions
         - [x] Entrectinib in NTRK fusion
+        - [x] Repotrectinib in NTRK fusions (incl. TKI-pretreated) **TRIDENT-1**
         - [x] Dabrafenib/trametinib in BRAFV600E mutated
         - [x] Selpercatinib in RET fusion
         - [x] Neratinib in HER2/ERBB2 mutated
+        - [x] Trastuzumab deruxtecan in HER2 IHC 3+ solid tumours **DESTINY-PanTumor02**
 
 
 
@@ -435,6 +460,9 @@ markmap:
           - [x] gemcitabine
           - [x] vinorelbine
         - [x] Capecitabine+Neratinib typically in HR- HER2+ **NALA**
+      - CNS / Brain Metastases
+        - [x] T-DXd has substantial, durable intracranial activity in stable and active brain mets; use irrespective of baseline brain-met status **DB12**
+        - [x] Tucatinib + Capecitabine + Herceptin preferred for active/symptomatic CNS disease **HER2CLIMB01**
       - Further lines (With Herceptin)
         - [x] Paclitaxel
         - [x] nab-Paclitaxel
@@ -451,9 +479,11 @@ markmap:
         - [x] Dostarlimab in dMMR/MSI-H 
         - [x] Larotrectinib in NTRK fusions
         - [x] Entrectinib in NTRK fusion
+        - [x] Repotrectinib in NTRK fusions (incl. TKI-pretreated) **TRIDENT-1**
         - [x] Dabrafenib/trametinib in BRAFV600E mutated
         - [x] Selpercatinib in RET fusion
         - [x] Neratinib in HER2/ERBB2 mutated
+        - [x] Trastuzumab deruxtecan in HER2 IHC 3+ solid tumours **DESTINY-PanTumor02**
 
 
 
@@ -530,6 +560,9 @@ markmap:
           - [x] gemcitabine
           - [x] vinorelbine
         - [x] Capecitabine+Neratinib typically in HR- HER2+ **NALA**
+      - CNS / Brain Metastases
+        - [x] T-DXd has substantial, durable intracranial activity in stable and active brain mets; use irrespective of baseline brain-met status **DB12**
+        - [x] Tucatinib + Capecitabine + Herceptin preferred for active/symptomatic CNS disease **HER2CLIMB01**
       - Further lines (With Herceptin)
         - [x] Paclitaxel
         - [x] nab-Paclitaxel
@@ -546,9 +579,11 @@ markmap:
         - [x] Dostarlimab in dMMR/MSI-H 
         - [x] Larotrectinib in NTRK fusions
         - [x] Entrectinib in NTRK fusion
+        - [x] Repotrectinib in NTRK fusions (incl. TKI-pretreated) **TRIDENT-1**
         - [x] Dabrafenib/trametinib in BRAFV600E mutated
         - [x] Selpercatinib in RET fusion
         - [x] Neratinib in HER2/ERBB2 mutated
+        - [x] Trastuzumab deruxtecan in HER2 IHC 3+ solid tumours **DESTINY-PanTumor02**
 
 
 
@@ -594,6 +629,8 @@ markmap:
         - [x] Paclitaxel OR Abraxane OR CarboGem. Add Pembro if 22C3+ **KEYNOTE355**
         - [x] Olaparib OR Talzaporib for germline BRCA1/2 **OlympiA** and for somatic/germline PALB2 and somatic BRCA1/2 **TBCRC048**
         - [x] Capecitabine 1000mg/m2 for low volume disease 
+        - [x] Sacituzumab govitecan monotherapy if not a candidate for a PD-(L)1 inhibitor (prior IO / IO-ineligible) **ASCENT-03**
+        - [x] Datopotamab deruxtecan (Dato-DXd) monotherapy if IO-ineligible; improved PFS and OS vs chemo **TROPION-Breast02**
       - 2nd line
         - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPiCS-02**
         - [x] Trastuzumab deruxtecan, IHC Low, given after 1 Chemo line **DB04**
@@ -615,9 +652,11 @@ markmap:
         - [x] Dostarlimab in dMMR/MSI-H 
         - [x] Larotrectinib in NTRK fusions
         - [x] Entrectinib in NTRK fusion
+        - [x] Repotrectinib in NTRK fusions (incl. TKI-pretreated) **TRIDENT-1**
         - [x] Dabrafenib/trametinib in BRAFV600E mutated
         - [x] Selpercatinib in RET fusion
         - [x] Neratinib in HER2/ERBB2 mutated
+        - [x] Trastuzumab deruxtecan in HER2 IHC 3+ solid tumours **DESTINY-PanTumor02**
 
   - New Trials to add
     - SONIA trial. PALMIRA, PACE trials for continue cdk
@@ -644,6 +683,19 @@ markmap:
       - [x] 1L T-DXd + Pertuzumab in HER2+ MBC **DB09** (HR- HER2+ and Triple Positive Stage IV, 1st line)
       - [x] Post-neoadjuvant T-DXd superior to T-DM1 for residual HER2+ disease **DB05** (all no-pCR nodes)
       - [x] Comparable OS for 1L vs 2L CDK4/6i timing **SONIA** (HR+ HER2- Stage IV, 1st line)
+      - [x] Denosumab for AI-associated bone loss **ABCSG-18**; adjuvant palbociclib negative **PALLAS**/**PENELOPE-B** (2026 review)
+      - [x] Imlunestrant **EMBER-3** & Vepdegestrant **VERITAC-2** for ESR1m; Talazoparib **EMBRACA** for gBRCA (2026 review)
+      - [x] HER2+ CNS/brain-mets node **DB12**; IO-ineligible 1L TNBC ADCs **ASCENT-03** & **TROPION-Breast02** (2026 review)
+      - [x] Tumour-agnostic T-DXd **DESTINY-PanTumor02** & Repotrectinib **TRIDENT-1**; hereditary gene-tier management (2026 review)
     - Emerging / to watch
-      - Oral ER degraders in ESR1m beyond Elacestrant: Camizestrant, Vepdegestrant **VERITAC-2**, Lasofoxifene+Abemaciclib **ELAINE-3**
-      - TNBC: Datopotamab deruxtecan +/- Durvalumab in 1st line and residual disease **Tropion-Breast02/03/05**+
+      - Oral ER degraders in ESR1m beyond Elacestrant: Camizestrant (SERENA-6, 1L pre-emptive), Lasofoxifene+Abemaciclib **ELAINE-3**
+      - TNBC: Datopotamab deruxtecan ± Durvalumab in residual disease **TROPION-Breast03/05**
+      - Neoadjuvant + adjuvant checkpoint IO in high-risk grade 3 ER+/HER2-: pembrolizumab raised pCR (EFS immature, unapproved) **KEYNOTE-756**
+      - Neoadjuvant nivolumab + chemo in high-risk ER+/HER2- raised pCR (EFS immature, unapproved) **CheckMate 7FL**
+      - Imlunestrant + Abemaciclib all-oral SERD+CDK4/6i doublet post-AI ± CDK4/6i; PFS benefit but OS not significant, doublet not yet approved **EMBER-3**
+      - HER2+ EBC (high-risk): neoadjuvant T-DXd → THP improved pCR vs ddAC-THP, EFS immature, not yet approved neoadjuvantly **DB11**
+      - Zanidatamab (HER2 biparatopic bispecific) active in HER2+ MBC; approved in biliary cancer, investigational in breast **zanidatamab**
+      - TNBC: Sacituzumab tirumotecan (sac-TMT), a third TROP2 ADC, improved PFS/OS vs chemo (China-approved; global phase 3 ongoing) **OptiTROP-Breast01**
+      - Low-risk DCIS: active monitoring ± endocrine therapy non-inferior to surgery at 2y (2y data only, not yet standard) **COMET**
+      - Denosumab for primary prevention in unaffected germline BRCA1 carriers (efficacy awaited) **BRCA-P**
+      - Early-disease ctDNA MRD surveillance is prognostic only — MRD-guided escalation has no proven outcome benefit **c-TRAK-TN**
