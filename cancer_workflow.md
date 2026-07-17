@@ -125,7 +125,7 @@ markmap:
           - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is likey small for T1 N1 Stage  **EBCTG 2023** & **ABC 2024**
         - TARGETED THERAPY
           - [x] Ribociclib approved for N1 disease **NATALEE**
-          - [x] Abemaciclib appproved for N1 disease with Grade III **MonarchE**
+          - [x] Abemaciclib approved for N1 disease with Grade III **MonarchE**
           - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
         - BISPHOSPHONATES
           - [x] Benefit is moderate **EBCTG 2015**
@@ -156,7 +156,7 @@ markmap:
           - [x] Mammaprint is NOT validated for Stage III disease **MINDACT**
           - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is high, and ddAC/T is favoured  **EBCTG 2023** & **ABC 2024**
       - TARGETED THERAPY
-          - [x] Abemaciclib appproved for T3N1, N2 and N3 disease with **MonarchE**
+          - [x] Abemaciclib approved for T3N1, N2 and N3 disease with **MonarchE**
           - [x] Ribociclib approved for T3N1, N2 and N3 disease **NATALEE**
           - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
       - BISPHOSPHONATES
@@ -189,7 +189,7 @@ markmap:
         - [x] Trastuzumab deruxtecan, IHC Ultralow or Low, given after ET **DB06**
       - 4th Line
         - [x] Trastuzumab deruxtecan, IHC Low, given after 1 chemo line **DB04**
-        - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPICS02**
+        - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPiCS-02**
         - [x] Datopotamab deruxtecan (DXd), regardless of TROP2, given after 1-2 Chemo lines **Tropion-01**
       - Further lines
         - [x] Paclitaxel
@@ -292,7 +292,7 @@ markmap:
           - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is likey small for T1 N1 Stage  **EBCTG 2023** & **ABC 2024**
         - TARGETED THERAPY
           - [x] Ribociclib approved for N1 disease **NATALEE**
-          - [x] Abemaciclib appproved for N1 disease with Grade III **MonarchE**
+          - [x] Abemaciclib approved for N1 disease with Grade III **MonarchE**
           - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
         - BISPHOSPHONATES
           - [x] Benefit is moderate **EBCTG 2015**
@@ -323,7 +323,7 @@ markmap:
           - [x] Mammaprint is NOT validated for Stage III disease **MINDACT**
           - If Chemotherapy is indicated, absolute difference between ddAC/T and TC is high, and ddAC/T is favoured  **EBCTG 2023** & **ABC 2024**
       - TARGETED THERAPY
-          - [x] Abemaciclib appproved for T3N1, N2 and N3 disease with **MonarchE**
+          - [x] Abemaciclib approved for T3N1, N2 and N3 disease with **MonarchE**
           - [x] Ribociclib approved for T3N1, N2 and N3 disease **NATALEE**
           - [x] Olaparib in high-risk ER+ HER2- gBRCA1/2 (and PALB2) Stage II **OlympiA**
       - BISPHOSPHONATES
@@ -334,7 +334,7 @@ markmap:
     - STAGE IV
       - 1st line
         - [x] AI for small volume of disease
-        - [x] AI+CDK4/6i Palbociclib, Ribociclib OR Abemaciclib **PALOMA2**, **MONALESA2** & **MONARCH3**
+        - [x] AI+CDK4/6i Palbociclib, Ribociclib OR Abemaciclib **PALOMA2**, **MONALEESA2** & **MONARCH3**
         - [x] For non-denovo if PIK3CA mut, can consider Fulvestrant+inavolisib **INAVO120**
         - [x] Monitor ctDNA on 1L ET+CDK4/6i; on emergent ESR1m switch pre-emptively to Camizestrant (continue CDK4/6i) **SERENA-6** or Fulvestrant+Palbociclib **PADA-1**
         - [x] 1L vs 2L CDK4/6i timing shows comparable OS; deferral to 2L is an option **SONIA**
@@ -356,7 +356,7 @@ markmap:
         - [x] Trastuzumab deruxtecan, IHC Ultralow or Low, given after ET **DB06**
       - 4th Line
         - [x] Trastuzumab deruxtecan, IHC Low, given after 1 Chemo line **DB04**
-        - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPICS02**
+        - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPiCS-02**
         - [x] Datopotamab deruxtecan (DXd), regardless of TROP2, given after 1-2 Chemo lines **Tropion-01**
       - Further lines
         - [x] Paclitaxel
@@ -395,13 +395,13 @@ markmap:
 
     - STAGE II
       - Receiving NACT
-        - [x] Taxotere, Carboplatin, HP **TRYPHEMA**
+        - [x] Taxotere, Carboplatin, HP **TRYPHAENA**
         - [x] Weekly Taxol, HP followed by ddAC **NOAH**
         - [x] For poor ECOG, Can consider TDM1+Pertuzumab **KRISTINE**
       - Post Receiving NACT
-        - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] If no pCR, TDM-1 to complete a year **KATHERINE**
         - [x] T-DXd is superior to TDM-1 for high-risk residual disease **DB05**
-        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
+        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHAENA**
       - Adjuvant Therapy without NACT
         - [x] Adjuvant Taxotere, Carboplatin, HP **APHINITY**
         - [x] If small N0 T2 <30mm, can consider adjuvant Paclitaxel and Herceptin **APT**
@@ -409,18 +409,18 @@ markmap:
 
     - STAGE III
       - Receiving NACT
-        - [x] Taxotere, Carboplatin, HP **TRYPHEMA**
+        - [x] Taxotere, Carboplatin, HP **TRYPHAENA**
         - [x] Weekly Taxol, HP followed by ddAC **NOAH**
       - Post Receiving NACT
-        - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] If no pCR, TDM-1 to complete a year **KATHERINE**
         - [x] T-DXd is superior to TDM-1 for high-risk residual disease **DB05**
-        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
+        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHAENA**
       - Adjuvant Therapy without NACT
         - [x] Adjuvant Taxotere, Carboplatin, HP **APHINITY**
 
     - STAGE IV
       - 1st line
-        - [x] Docetaxeol OR Paclitaxel with HP → maintenance HP **CLEOPATRA**
+        - [x] Docetaxel OR Paclitaxel with HP → maintenance HP **CLEOPATRA**
         - [x] Trastuzumab deruxtecan + Pertuzumab, emerging 1st line option (regardless of HR status) **DB09**
       - 2nd line
         - [x] Trastuzumab deruxtecan **DB03**
@@ -479,13 +479,13 @@ markmap:
 
     - STAGE II
       - Receiving NACT
-        - [x] Taxotere, Carboplatin, HP **TRYPHEMA**
+        - [x] Taxotere, Carboplatin, HP **TRYPHAENA**
         - [x] Weekly Taxol, HP followed by ddAC **NOAH**
         - [x] For poor ECOG, Can consider TDM1+Pertuzumab **KRISTINE** or Palbociclib+Letrozole+HP **TOUCH**
       - Post Receiving NACT
-        - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] If no pCR, TDM-1 to complete a year **KATHERINE**
         - [x] T-DXd is superior to TDM-1 for high-risk residual disease **DB05**
-        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
+        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHAENA**
         - [x] Adjuvant ET (AI versus SERM) with Ovarian Suppression if premenopausal **SOFT/TEXT**
         - [x] Consider Adjuvant Neratinib (Benefit after receiving Kadcyla is unknown) **ExteNET**
       - Adjuvant Therapy without NACT
@@ -497,12 +497,12 @@ markmap:
 
     - STAGE III
       - Receiving NACT
-       - [x] Taxotere, Carboplatin, HP **TRYPHEMA**
+       - [x] Taxotere, Carboplatin, HP **TRYPHAENA**
        - [x] Weekly Taxol, HP followed by ddAC **NOAH**
       - Post Receiving NACT
-        - [x] If no pCR, TDM-1 to complete a year **KATHRINE**
+        - [x] If no pCR, TDM-1 to complete a year **KATHERINE**
         - [x] T-DXd is superior to TDM-1 for high-risk residual disease **DB05**
-        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHEMA**
+        - [x] If pCR, adjuvant Herceptin to complete a year. If cN+, adjuvant HP to complete a year **TRYPHAENA**
         - [x] Adjuvant AI with Ovarian Suppression if premenopausal **SOFT/TEXT**
         - [x] Consider Adjuvant Neratinib (Benefit after receiving Kadcyla is unknown) **ExteNET**
       - Adjuvant Therapy without NACT
@@ -514,8 +514,8 @@ markmap:
     - STAGE IV
       - 1st line
         - [x] Trastuzumab deruxtecan + Pertuzumab **DB09**
-        - [x] Docetaxeol OR Paclitaxel with HP → maintenance ET + HP **CLEOPATRA** & **PERTAIN** 
-        - [x] Docetaxeol OR Paclitaxel with HP → maintenance ET + HP + CDK4/6i **PATINA** & **BR 18-2 MINI**
+        - [x] Docetaxel OR Paclitaxel with HP → maintenance ET + HP **CLEOPATRA** & **PERTAIN** 
+        - [x] Docetaxel OR Paclitaxel with HP → maintenance ET + HP + CDK4/6i **PATINA** & **BR 18-2 MINI**
         - [x] ET + HP **SYSUCC002** & **PERTAIN**
       - 2nd line
         - [x] Trastuzumab deruxtecan **DB03**
@@ -595,10 +595,10 @@ markmap:
         - [x] Olaparib OR Talzaporib for germline BRCA1/2 **OlympiA** and for somatic/germline PALB2 and somatic BRCA1/2 **TBCRC048**
         - [x] Capecitabine 1000mg/m2 for low volume disease 
       - 2nd line
-        - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPICS02**
+        - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPiCS-02**
         - [x] Trastuzumab deruxtecan, IHC Low, given after 1 Chemo line **DB04**
       - 3rd line
-        - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPICS02**
+        - [x] Sacituzumab govitecan, regardless of TROP2, given after 1-2 Chemo lines **TROPiCS-02**
       - Further lines
         - [x] Paclitaxel
         - [x] nab-Paclitaxel
