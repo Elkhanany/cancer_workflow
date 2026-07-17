@@ -38,15 +38,23 @@ jobs:
       - name: Regenerate index.html
         run: node cancer_index.js
 
-      - name: Commit regenerated index.html
+      # Pages serves from the branch in the default "Deploy from a branch" mode,
+      # which runs Jekyll. Jekyll would treat cancer_workflow.md (it has YAML
+      # front matter) as a page to render and would NOT publish the raw .md, so
+      # compose.html's fetch('cancer_workflow.md') would 404. An empty .nojekyll
+      # at the repo root disables Jekyll so every file is served verbatim.
+      - name: Ensure .nojekyll exists
+        run: touch .nojekyll
+
+      - name: Commit regenerated files
         run: |
-          if [ -n "$(git status --porcelain -- index.html)" ]; then
+          if [ -n "$(git status --porcelain -- index.html .nojekyll)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add -- index.html
+            git add -- index.html .nojekyll
             # "[skip ci]" is a second guard against loops (the paths filter above is the first).
             git commit -m "chore: rebuild index.html from cancer_workflow.md [skip ci]"
             git push
           else
-            echo "index.html is already up to date; nothing to commit."
+            echo "index.html and .nojekyll are already up to date; nothing to commit."
           fi

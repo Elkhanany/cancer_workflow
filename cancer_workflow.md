@@ -527,8 +527,8 @@ markmap:
 
     - STAGE III
       - Receiving NACT
-       - [x] Taxotere, Carboplatin, HP **TRYPHAENA**
-       - [x] Weekly Taxol, HP followed by ddAC **NOAH**
+        - [x] Taxotere, Carboplatin, HP **TRYPHAENA**
+        - [x] Weekly Taxol, HP followed by ddAC **NOAH**
       - Post Receiving NACT
         - [x] If no pCR, TDM-1 to complete a year **KATHERINE**
         - [x] T-DXd is superior to TDM-1 for high-risk residual disease **DB05**

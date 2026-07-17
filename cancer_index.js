@@ -289,6 +289,8 @@ body {
 }
 .icon-btn:hover { border-color: var(--focus); color: var(--focus); }
 .icon-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus-ring); }
+.icon-btn.labeled { width: auto; gap: 6px; padding: 0 12px; text-decoration: none; font: 700 13px/1 inherit; white-space: nowrap; }
+@media (max-width: 560px) { .icon-btn.labeled .lbl { display: none; } .icon-btn.labeled { width: 44px; padding: 0; } }
 :root[data-theme="dark"] .sun { display: block; }
 :root[data-theme="dark"] .moon { display: none; }
 .sun { display: none; }
@@ -498,6 +500,12 @@ body {
                aria-controls="results">
         <div id="results" role="listbox" aria-label="Search results"></div>
       </div>
+      <a class="icon-btn labeled" href="compose.html" title="Add an entry" aria-label="Add an entry">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 5v14M5 12h14"></path>
+        </svg>
+        <span class="lbl">Add entry</span>
+      </a>
       <button class="icon-btn" id="resetBtn" type="button" title="Reset view (Esc)" aria-label="Reset view">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M3 12a9 9 0 1 0 3-6.7"></path><path d="M3 4v4h4"></path>
