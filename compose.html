@@ -525,12 +525,35 @@ details.mr[open] > summary::before { transform: rotate(90deg); }
     var newLine = buildLine(P, userText, tags, isRec);
     var pos = computeInsertPos(contents, P);
     contents.splice(pos, 0, newLine);
-    terms.splice(pos, 0, parsed.eol); // new line gets the file's dominant terminator
+    if (pos > 0 && terms[pos - 1] === '') {
+      // Appending after an unterminated final line: end that line with the file's
+      // EOL and leave the new (now final) line unterminated, so nothing is joined.
+      terms[pos - 1] = parsed.eol;
+      terms.splice(pos, 0, '');
+    } else {
+      terms.splice(pos, 0, parsed.eol); // new line gets the file's dominant terminator
+    }
     return { text: joinLines(contents, terms), pos: pos, newLine: newLine };
   }
 
+  // Authoritative sanity check on an insertEntry result: re-parse it; the inserted
+  // line's indentation-parent must be P (as its last child) AND its indent must reach
+  // P's CommonMark content column (P.indent + 2) — the exact rule markmap uses to
+  // nest a child. Both the preview and the MR path refuse to save when this fails.
+  function insertNestsUnder(P, out) {
+    var newIndent = newIndentFor(P);
+    if (newIndent < P.indent + 2) return false;
+    var re = parse(out.text), inserted = null, i;
+    for (i = 0; i < re.nodes.length; i++) {
+      if (re.nodes[i].lineIndex === out.pos) { inserted = re.nodes[i]; break; }
+    }
+    return !!(inserted && inserted.parent && inserted.parent.text === P.text &&
+        inserted.parent.children[inserted.parent.children.length - 1] === inserted &&
+        inserted.indent === newIndent);
+  }
+
   // Locate a node in a freshly parsed tree by the sequence of texts from a
-  // top-level (depth-1) node down to P. Used by the PR path against fresh content.
+  // top-level (depth-1) node down to P. Used by the MR path against fresh content.
   function findByPath(parsed, pathTexts) {
     if (!pathTexts.length) return null;
     var level = parsed.roots.reduce(function (acc, r) { return acc.concat(r.children || []); }, []);
@@ -842,25 +865,12 @@ details.mr[open] > summary::before { transform: rotate(90deg); }
       return;
     }
 
-    // Authoritative sanity check: splice into a copy and re-parse; the inserted
-    // line's indentation-parent must be P AND its indent must reach P's CommonMark
-    // content column (P.indent + 2) — the exact rule markmap uses to nest a child.
-    // If either fails, saving is BLOCKED so a mis-nested entry can never reach main.
+    // Splice into a copy and re-parse (insertNestsUnder). If the entry would not
+    // nest under P, saving is BLOCKED so a mis-nested entry can never reach main.
     var ok = false, detail = '';
     try {
-      var contentCol = P.indent + 2;
-      var newIndent = newIndentFor(P);
       var out = insertEntry(S.parsed, P, e.text, e.tags, e.isRec);
-      var re = parse(out.text);
-      var inserted = null, i;
-      for (i = 0; i < re.nodes.length; i++) {
-        if (re.nodes[i].lineIndex === out.pos) { inserted = re.nodes[i]; break; }
-      }
-      var attachesToP = !!(inserted && inserted.parent && inserted.parent.text === P.text &&
-          inserted.parent.children[inserted.parent.children.length - 1] === inserted &&
-          inserted.indent === newIndent);
-      var markmapNests = newIndent >= contentCol; // child must reach parent's content column
-      if (attachesToP && markmapNests) {
+      if (insertNestsUnder(P, out)) {
         ok = true;
         detail = 'Validated: parses cleanly and attaches as the last child of “' + prettify(P.text) + '”.';
       } else {
@@ -979,9 +989,10 @@ details.mr[open] > summary::before { transform: rotate(90deg); }
   /* ----------------------------------------------------------------------
    * GITLAB MERGE REQUEST  (optional, token-gated)
    * -------------------------------------------------------------------- */
-  var GL = { project: 'a.elkhanany/cancer_workflow', base: 'main', file: 'cancer_workflow.md', api: 'https://gitlab.com/api/v4' };
-  // Namespaced project path in the URL must be encoded ('/' -> %2F).
-  var GL_PROJECT = GL.api + '/projects/' + encodeURIComponent(GL.project);
+  var GL = { project: 'a.elkhanany/cancer_workflow', id: 87690822, base: 'main', file: 'cancer_workflow.md', api: 'https://gitlab.com/api/v4' };
+  // Address the project by its numeric id (that of GL.project): the alternative,
+  // a %2F-encoded namespaced path, is decoded by some proxies and then 404s.
+  var GL_PROJECT = GL.api + '/projects/' + GL.id;
   var TOKEN_KEY = 'cw-gl-token';
 
   try {
@@ -1105,6 +1116,9 @@ details.mr[open] > summary::before { transform: rotate(90deg); }
         var freshP = findByPath(freshParsed, pathTexts);
         if (!freshP) throw new Error('the chosen parent could not be located in the latest file (it may have changed). Reload the page and try again, or use Download.');
         var out = insertEntry(freshParsed, freshP, e.text, e.tags, e.isRec);
+        // The preview validated against the file this page loaded; main may differ,
+        // so validate again against what will actually be committed.
+        if (!insertNestsUnder(freshP, out)) throw new Error('in the latest ' + GL.file + ' on ' + GL.base + ', “' + prettify(freshP.text) + '” has irregular indentation, so the entry would not nest under it. Nothing was committed. Choose a different parent, or use Download.');
         newLine = out.newLine;
         stage = 'commit';
         push('Committing the entry to new branch ' + branch + '…');
