@@ -169,7 +169,7 @@ main { max-width: 960px; margin: 0 auto; padding: 18px 20px 80px; }
 label, .field-label { display: block; font-size: 13px; font-weight: 700; margin: 0 0 5px; }
 .field { margin-bottom: 14px; }
 .req { color: var(--err); }
-select, input[type="text"], textarea {
+select, input[type="text"], input[type="password"], textarea {
   width: 100%; font-family: inherit; font-size: 16px;
   padding: 10px 12px; min-height: 44px;
   border: 1px solid var(--border); border-radius: 10px;
@@ -235,24 +235,25 @@ button.btn:disabled { opacity: 0.5; cursor: not-allowed; }
 button.btn.primary { background: var(--accent); color: var(--surface); border-color: transparent; }
 button.btn.primary:hover:not(:disabled) { filter: brightness(1.08); }
 
-/* ---------- Details / PR ---------- */
-details.pr { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
-details.pr > summary {
+/* ---------- Details / MR ---------- */
+details.mr { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+details.mr > summary {
   cursor: pointer; padding: 14px 16px; font-weight: 700; font-size: 14px;
   list-style: none; display: flex; align-items: center; gap: 8px;
   background: var(--surface);
 }
-details.pr > summary::-webkit-details-marker { display: none; }
-details.pr > summary::before { content: "\25B8"; color: var(--text-secondary); transition: transform 0.15s ease; }
-details.pr[open] > summary::before { transform: rotate(90deg); }
-.pr-body { padding: 0 16px 16px; }
+details.mr > summary::-webkit-details-marker { display: none; }
+details.mr > summary::before { content: "\25B8"; color: var(--text-secondary); transition: transform 0.15s ease; }
+details.mr[open] > summary::before { transform: rotate(90deg); }
+.mr-body { padding: 0 16px 16px; }
 .token-warn {
   font-size: 12.5px; background: var(--warn-bg); color: var(--warn);
   border-radius: 10px; padding: 10px 12px; margin: 6px 0 12px;
 }
-.pr-status { margin-top: 12px; font-size: 13px; word-break: break-word; }
-.pr-status ol { margin: 8px 0 0 18px; }
-.pr-status li { margin: 2px 0; }
+.token-warn p + p { margin-top: 6px; }
+.status-msg { margin-top: 12px; font-size: 13px; word-break: break-word; }
+.status-msg ol { margin: 8px 0 0 18px; }
+.status-msg li { margin: 2px 0; }
 .sr-only {
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
@@ -357,41 +358,42 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
   <!-- Step 4: outputs -->
   <div class="card" id="outputCard" hidden>
     <h2><span class="step-n">4</span> Save it back</h2>
-    <div class="hint" style="margin-bottom:12px;">No account or install needed for the first three. The file stays the single source of truth &mdash; once it lands on <code>main</code>, the site rebuilds itself.</div>
+    <div class="hint" style="margin-bottom:12px;">No account or install needed for the first three. The file stays the single source of truth &mdash; once it lands on <code>main</code> on GitLab, Cloudflare Pages redeploys the site.</div>
     <div class="btn-row">
       <button class="btn" id="copyEntry" type="button">Copy entry line</button>
       <button class="btn primary" id="downloadFile" type="button">Download updated cancer_workflow.md</button>
       <button class="btn" id="copyFile" type="button">Copy full file</button>
     </div>
-    <div id="outMsg" class="pr-status" role="status" aria-live="polite"></div>
+    <div id="outMsg" class="status-msg" role="status" aria-live="polite"></div>
 
     <div style="margin-top:16px;">
-      <details class="pr" id="prDetails">
-        <summary>Advanced: open a Pull Request on GitHub</summary>
-        <div class="pr-body">
-          <p class="hint" style="margin:8px 0 0;">For users comfortable with GitHub. This commits the change to a new branch and opens a pull request against <b>main</b> &mdash; no terminal required. Merging it triggers the site rebuild automatically.</p>
+      <details class="mr" id="mrDetails">
+        <summary>Advanced: open a Merge Request on GitLab</summary>
+        <div class="mr-body">
+          <p class="hint" style="margin:8px 0 0;">For users comfortable with GitLab. This commits the change to a new branch and opens a merge request against <b>main</b> &mdash; no terminal required. Merging it redeploys the site through Cloudflare Pages automatically.</p>
           <div class="token-warn">
-            <b>Token safety.</b> Paste a <b>fine-grained Personal Access Token</b> scoped to <b>Elkhanany/cancer_workflow</b> with <b>Contents: Read&nbsp;and&nbsp;write</b> and <b>Pull requests: Read&nbsp;and&nbsp;write</b>. It is stored only in this browser's localStorage and sent only to api.github.com over HTTPS. It is never placed in a URL or logged. Use <b>Forget token</b> on a shared device.
+            <p><b>Token safety.</b> Paste a GitLab <b>personal access token</b> with the <b>api</b> scope &mdash; GitLab requires that scope for a classic token to create merge requests. It grants access to <b>every project your account can reach</b>, so give it a short expiry date. It is stored only in this browser's localStorage and sent only to gitlab.com over HTTPS, in a request header. It is never placed in a URL or logged. Use <b>Forget token</b> on a shared device.</p>
+            <p>Safer alternative: a <b>fine-grained</b> personal access token limited to <b>a.elkhanany/cancer_workflow</b> with <b>Repository: Read</b>, <b>Commit: Create</b> and <b>Merge Request: Create</b>.</p>
           </div>
           <div class="field">
-            <label for="ghToken">GitHub token</label>
-            <input type="password" id="ghToken" autocomplete="off" spellcheck="false" placeholder="github_pat_&hellip;">
+            <label for="glToken">GitLab token</label>
+            <input type="password" id="glToken" autocomplete="off" spellcheck="false" placeholder="glpat-&hellip;">
           </div>
           <div class="field">
-            <label for="prTitle">Pull request title</label>
-            <input type="text" id="prTitle" autocomplete="off" placeholder="Add entry under &hellip;">
+            <label for="mrTitle">Merge request title</label>
+            <input type="text" id="mrTitle" autocomplete="off" placeholder="Add entry under &hellip;">
           </div>
           <div class="btn-row">
-            <button class="btn primary" id="createPr" type="button">Create pull request</button>
+            <button class="btn primary" id="createMr" type="button">Create merge request</button>
             <button class="btn" id="forgetToken" type="button">Forget token</button>
           </div>
-          <div id="prStatus" class="pr-status" role="status" aria-live="polite"></div>
+          <div id="mrStatus" class="status-msg" role="status" aria-live="polite"></div>
         </div>
       </details>
     </div>
   </div>
 
-  <p class="foot">Single source of truth: <code>cancer_workflow.md</code> &middot; a push to <code>main</code> auto-rebuilds <code>index.html</code> via GitHub Actions.</p>
+  <p class="foot">Single source of truth: <code>cancer_workflow.md</code> &middot; a push or merge to <code>main</code> on GitLab redeploys the site via Cloudflare Pages, whose build regenerates <code>index.html</code>.</p>
 </main>
 
 <script>
@@ -554,7 +556,7 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
   // Neutralize raw HTML before the value is ever written into the source file.
   // markmap passes raw HTML through and the site renders node.content via innerHTML,
   // so an unescaped '<' would be a stored-XSS vector (and this page also holds a
-  // GitHub PAT). Entity-encoding the angle brackets keeps the injection inert while
+  // GitLab token). Entity-encoding the angle brackets keeps the injection inert while
   // preserving the visible characters on the map (e.g. "PD-L1 <1%" still reads as
   // "PD-L1 <1%"). Applied last, after all other cleaning.
   function neutralizeHtml(s) {
@@ -612,11 +614,11 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
     downloadFile: document.getElementById('downloadFile'),
     copyFile: document.getElementById('copyFile'),
     outMsg: document.getElementById('outMsg'),
-    ghToken: document.getElementById('ghToken'),
-    prTitle: document.getElementById('prTitle'),
-    createPr: document.getElementById('createPr'),
+    glToken: document.getElementById('glToken'),
+    mrTitle: document.getElementById('mrTitle'),
+    createMr: document.getElementById('createMr'),
     forgetToken: document.getElementById('forgetToken'),
-    prStatus: document.getElementById('prStatus')
+    mrStatus: document.getElementById('mrStatus')
   };
 
   function setBanner(node, cls, htmlSafeText) {
@@ -912,7 +914,7 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
     el.copyEntry.disabled = !ready;
     el.downloadFile.disabled = !ready;
     el.copyFile.disabled = !ready;
-    el.createPr.disabled = !ready;
+    el.createMr.disabled = !ready;
   }
 
   ['input', 'change'].forEach(function (ev) {
@@ -975,157 +977,208 @@ details.pr[open] > summary::before { transform: rotate(90deg); }
   });
 
   /* ----------------------------------------------------------------------
-   * GITHUB PULL REQUEST  (optional, token-gated)
+   * GITLAB MERGE REQUEST  (optional, token-gated)
    * -------------------------------------------------------------------- */
-  var GH = { owner: 'Elkhanany', repo: 'cancer_workflow', base: 'main', file: 'cancer_workflow.md', api: 'https://api.github.com' };
-  var TOKEN_KEY = 'cw-gh-token';
+  var GL = { project: 'a.elkhanany/cancer_workflow', base: 'main', file: 'cancer_workflow.md', api: 'https://gitlab.com/api/v4' };
+  // Namespaced project path in the URL must be encoded ('/' -> %2F).
+  var GL_PROJECT = GL.api + '/projects/' + encodeURIComponent(GL.project);
+  var TOKEN_KEY = 'cw-gl-token';
 
   try {
+    // Drop any token left behind by the old GitHub flow; it is never read.
+    localStorage.removeItem('cw-gh-token');
     var saved = localStorage.getItem(TOKEN_KEY);
-    if (saved) el.ghToken.value = saved;
+    if (saved) el.glToken.value = saved;
   } catch (e) {}
 
   el.forgetToken.addEventListener('click', function () {
     try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
-    el.ghToken.value = '';
-    setBanner(el.prStatus, 'ok', 'Token removed from this browser.');
+    el.glToken.value = '';
+    setBanner(el.mrStatus, 'ok', 'Token removed from this browser.');
   });
 
-  function b64EncodeUnicode(str) {
-    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, function (m, p1) {
-      return String.fromCharCode('0x' + p1);
-    }));
+  // Byte-exact UTF-8 <-> base64. GitLab returns the file Base64-encoded; decoding
+  // the raw bytes with a fatal, BOM-preserving TextDecoder keeps every byte of the
+  // unchanged lines (the CRLF/LF terminators included), and the update is sent
+  // back as base64 of the UTF-8 bytes so nothing is re-encoded in transit.
+  function b64ToUtf8(b64) {
+    var bin = atob(String(b64).replace(/\s+/g, ''));
+    var bytes = new Uint8Array(bin.length), i;
+    for (i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder('utf-8', { fatal: true, ignoreBOM: true }).decode(bytes);
   }
-  function b64DecodeUnicode(b64) {
-    var clean = String(b64).replace(/\s+/g, '');
-    return decodeURIComponent(Array.prototype.map.call(atob(clean), function (c) {
-      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-    }).join(''));
+  function utf8ToB64(str) {
+    var bytes = new TextEncoder().encode(str), bin = '', i;
+    for (i = 0; i < bytes.length; i += 0x8000) {
+      bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    }
+    return btoa(bin);
   }
 
-  function ghFetch(token, path, opts) {
+  // GitLab error bodies vary: {message: "404 Project Not Found"},
+  // {message: ["Another open merge request already exists ..."]},
+  // {message: {title: ["can't be blank"]}}, {error, error_description} for token
+  // problems, or plain text (429). Flatten any of them to one short line.
+  function glErrorDetail(json, status) {
+    var m = json && (json.message != null ? json.message : (json.error_description || json.error || json.raw));
+    if (m && typeof m === 'object') {
+      m = Array.isArray(m) ? m.join('; ') : Object.keys(m).map(function (k) {
+        return k + ' ' + [].concat(m[k]).join(', ');
+      }).join('; ');
+    }
+    m = String(m || ('HTTP ' + status)).replace(/\s+/g, ' ').trim();
+    return m.length > 300 ? m.slice(0, 300) + '…' : m;
+  }
+
+  function glFetch(token, path, opts) {
     opts = opts || {};
-    var headers = {
-      'Authorization': 'Bearer ' + token,
-      'Accept': 'application/vnd.github+json',
-      'X-GitHub-Api-Version': '2022-11-28'
-    };
+    // The token travels ONLY in this header: never in a URL (history, logs,
+    // Referer) and never in a message. No cookies are sent to gitlab.com.
+    var headers = { 'PRIVATE-TOKEN': token };
     if (opts.body) headers['Content-Type'] = 'application/json';
-    return fetch(GH.api + path, { method: opts.method || 'GET', headers: headers, body: opts.body || undefined })
+    return fetch(GL_PROJECT + path, {
+      method: opts.method || 'GET', headers: headers, body: opts.body || undefined,
+      cache: 'no-store', credentials: 'omit', referrerPolicy: 'no-referrer'
+    })
       .then(function (r) {
         return r.text().then(function (t) {
           var json = null; try { json = t ? JSON.parse(t) : {}; } catch (e) { json = { raw: t }; }
           if (!r.ok) {
-            var msg = (json && json.message) ? json.message : ('HTTP ' + r.status);
-            var err = new Error(msg); err.status = r.status; throw err;
+            var err = new Error(glErrorDetail(json, r.status));
+            err.status = r.status; err.code = json && json.error;
+            throw err;
           }
           return json;
         });
+      }, function () {
+        // fetch() rejects only when no HTTP response could be read: offline, DNS,
+        // or the request was blocked (CORS, an extension, a firewall).
+        var err = new Error('network'); err.network = true; throw err;
       });
   }
 
-  function prLog(steps) {
-    el.prStatus.className = 'pr-status';
-    el.prStatus.innerHTML = '';
+  function mrLog(steps) {
+    el.mrStatus.className = 'status-msg';
+    el.mrStatus.innerHTML = '';
     var ol = document.createElement('ol');
     steps.forEach(function (s) {
       var li = document.createElement('li');
       li.textContent = s; // textContent: safe
       ol.appendChild(li);
     });
-    el.prStatus.appendChild(ol);
+    el.mrStatus.appendChild(ol);
   }
 
-  el.createPr.addEventListener('click', function () {
+  function uniqueSuffix() {
+    try {
+      var a = new Uint32Array(1); crypto.getRandomValues(a);
+      return a[0].toString(36);
+    } catch (e) { return Math.random().toString(36).slice(2, 8); }
+  }
+
+  el.createMr.addEventListener('click', function () {
     var P = currentParent(); var e = currentEntry();
-    if (!P || !e.text) { setBanner(el.prStatus, 'warn', 'Complete steps 1 and 2 first.'); return; }
-    var token = (el.ghToken.value || '').trim();
-    if (!token) { setBanner(el.prStatus, 'warn', 'Paste a GitHub token above (or just use Download / Copy — no token needed).'); return; }
+    if (!P || !e.text) { setBanner(el.mrStatus, 'warn', 'Complete steps 1 and 2 first.'); return; }
+    var token = (el.glToken.value || '').trim();
+    if (!token) { setBanner(el.mrStatus, 'warn', 'Paste a GitLab token above (or just use Download / Copy — no token needed).'); return; }
     try { localStorage.setItem(TOKEN_KEY, token); } catch (e2) {}
 
     // Path (depth1..P texts) used to relocate P in the fresh file so we never clobber.
     var pathTexts = S.path.map(function (n) { return n.text; });
-    var title = (el.prTitle.value || '').trim() || ('Add entry under ' + prettify(P.text));
-    var branch = 'compose-entry-' + Date.now();
-    var steps = [];
-    function push(s) { steps.push(s); prLog(steps); }
+    var title = (el.mrTitle.value || '').trim() || ('Add entry under ' + prettify(P.text));
+    var branch = 'compose-entry-' + Date.now() + '-' + uniqueSuffix();
+    var steps = [], stage = 'read', newLine = '';
+    function push(s) { steps.push(s); mrLog(steps); }
 
-    el.createPr.disabled = true;
-    push('Reading latest main…');
+    el.createMr.disabled = true;
+    push('Reading the latest ' + GL.file + ' on ' + GL.base + '…');
 
-    var mainSha, fileSha, updatedText;
-    ghFetch(token, '/repos/' + GH.owner + '/' + GH.repo + '/git/ref/heads/' + GH.base)
-      .then(function (ref) {
-        mainSha = ref.object && ref.object.sha;
-        if (!mainSha) throw new Error('could not read main ref');
-        push('Fetching current ' + GH.file + '…');
-        return ghFetch(token, '/repos/' + GH.owner + '/' + GH.repo + '/contents/' + encodeURIComponent(GH.file) + '?ref=' + GH.base);
-      })
+    glFetch(token, '/repository/files/' + encodeURIComponent(GL.file) + '?ref=' + encodeURIComponent(GL.base))
       .then(function (file) {
-        fileSha = file.sha;
-        var fresh = b64DecodeUnicode(file.content);
+        if (!file || typeof file.content !== 'string' || !file.last_commit_id) {
+          throw new Error('GitLab returned an unexpected response for ' + GL.file + '.');
+        }
+        var fresh;
+        try { fresh = b64ToUtf8(file.content); }
+        catch (decErr) { throw new Error(GL.file + ' on ' + GL.base + ' is not valid UTF-8, so it cannot be edited safely here. Use Download instead.'); }
         var freshParsed = parse(fresh);
         var freshP = findByPath(freshParsed, pathTexts);
         if (!freshP) throw new Error('the chosen parent could not be located in the latest file (it may have changed). Reload the page and try again, or use Download.');
         var out = insertEntry(freshParsed, freshP, e.text, e.tags, e.isRec);
-        updatedText = out.text;
-        push('Creating branch ' + branch + '…');
-        return ghFetch(token, '/repos/' + GH.owner + '/' + GH.repo + '/git/refs', {
-          method: 'POST', body: JSON.stringify({ ref: 'refs/heads/' + branch, sha: mainSha })
-        });
-      })
-      .then(function () {
-        push('Committing the entry…');
-        return ghFetch(token, '/repos/' + GH.owner + '/' + GH.repo + '/contents/' + encodeURIComponent(GH.file), {
-          method: 'PUT', body: JSON.stringify({
-            message: title,
-            content: b64EncodeUnicode(updatedText),
-            sha: fileSha,
-            branch: branch
-          })
-        });
-      })
-      .then(function () {
-        push('Opening the pull request…');
-        return ghFetch(token, '/repos/' + GH.owner + '/' + GH.repo + '/pulls', {
+        newLine = out.newLine;
+        stage = 'commit';
+        push('Committing the entry to new branch ' + branch + '…');
+        // One call creates the branch from main and commits to it. last_commit_id
+        // makes GitLab refuse (400) if main's copy changed after we read it.
+        return glFetch(token, '/repository/commits', {
           method: 'POST', body: JSON.stringify({
-            title: title,
-            head: branch,
-            base: GH.base,
-            body: 'Added via the in-browser compose tool.\n\nParent: ' + pathTexts.map(prettify).join(' > ') + '\n\nEntry:\n\n    ' + buildLine(P, e.text, e.tags, e.isRec) + '\n\nMerging this rebuilds the site automatically (GitHub Actions regenerates index.html).'
+            branch: branch,
+            start_branch: GL.base,
+            commit_message: title,
+            actions: [{
+              action: 'update',
+              file_path: GL.file,
+              content: utf8ToB64(out.text),
+              encoding: 'base64',
+              last_commit_id: file.last_commit_id
+            }]
           })
         });
       })
-      .then(function (pr) {
-        el.createPr.disabled = false;
-        el.prStatus.className = 'pr-status';
-        el.prStatus.innerHTML = '';
+      .then(function () {
+        stage = 'mr';
+        push('Opening the merge request…');
+        return glFetch(token, '/merge_requests', {
+          method: 'POST', body: JSON.stringify({
+            source_branch: branch,
+            target_branch: GL.base,
+            title: title,
+            description: 'Added via the in-browser compose tool.\n\nParent: ' + pathTexts.map(prettify).join(' > ') + '\n\nEntry:\n\n    ' + newLine + '\n\nMerging this into main redeploys the site via Cloudflare Pages (its build regenerates index.html).',
+            remove_source_branch: true
+          })
+        });
+      })
+      .then(function (mr) {
+        el.createMr.disabled = false;
+        el.mrStatus.className = 'status-msg';
+        el.mrStatus.innerHTML = '';
         var ok = document.createElement('div');
         ok.className = 'banner ok';
-        ok.textContent = 'Pull request #' + pr.number + ' created. ';
+        ok.textContent = 'Merge request !' + mr.iid + ' created. ';
         // Only turn the API-returned URL into a navigable link if it is a real
-        // github.com https URL (allowlist; the value is otherwise shown as text).
-        if (/^https:\/\/github\.com\//.test(String(pr.html_url || ''))) {
+        // gitlab.com https URL (allowlist; the value is otherwise shown as text).
+        if (/^https:\/\/gitlab\.com\//.test(String(mr.web_url || ''))) {
           var a = document.createElement('a');
-          a.href = pr.html_url;
+          a.href = mr.web_url;
           a.target = '_blank'; a.rel = 'noopener noreferrer';
-          a.textContent = 'Open it on GitHub';
+          a.textContent = 'Open it on GitLab';
           ok.appendChild(a);
         }
-        el.prStatus.appendChild(ok);
+        el.mrStatus.appendChild(ok);
         var note = document.createElement('div');
         note.className = 'hint'; note.style.marginTop = '8px';
-        note.textContent = 'Once reviewed and merged into main, the site rebuilds itself — no local build needed.';
-        el.prStatus.appendChild(note);
+        note.textContent = 'Once reviewed and merged into main, Cloudflare Pages redeploys the site — no local build needed.';
+        el.mrStatus.appendChild(note);
       })
       .catch(function (err) {
-        el.createPr.disabled = false;
-        var m = err && err.message ? err.message : String(err);
-        if (err && err.status === 401) m = 'Authentication failed (401). Check the token value.';
-        if (err && err.status === 403) m = 'Forbidden (403). The token lacks Contents/Pull-requests write on this repo, or you hit a rate limit.';
-        if (err && err.status === 404) m = 'Not found (404). The token cannot see Elkhanany/cancer_workflow — check its repository access.';
-        if (err && err.status === 422) m = 'Unprocessable (422). A branch/PR for this may already exist, or main changed — reload and retry. Detail: ' + m;
-        setBanner(el.prStatus, 'err', 'Failed: ' + m + '  (Your Download / Copy options still work without a token.)');
+        el.createMr.disabled = false;
+        var d = err && err.message ? err.message : String(err);
+        var s = err && err.status, m = d;
+        if (err && err.network) m = 'Could not reach gitlab.com. You may be offline, or the request was blocked by the browser, an extension or a network firewall.';
+        else if (s === 401) m = 'Authentication failed (401). The token is wrong, expired or revoked — create a new one.';
+        else if (s === 403 && err.code === 'insufficient_scope') m = 'Forbidden (403). The token lacks the api scope (or, for a fine-grained token, Repository: Read, Commit: Create and Merge Request: Create on ' + GL.project + ').';
+        else if (s === 403) m = 'Forbidden (403). The token or your GitLab account is not allowed to push branches or open merge requests on ' + GL.project + ' (this needs the api scope and at least Developer access). Detail: ' + d;
+        else if (s === 404 && /file not found/i.test(d)) m = 'Not found (404). ' + GL.file + ' is not on ' + GL.base + ' any more.';
+        else if (s === 404) m = 'Not found (404). The token\'s account cannot see ' + GL.project + ' (GitLab answers 404 for private projects you are not a member of). Detail: ' + d;
+        else if (s === 400 && /changed since/i.test(d)) m = 'Conflict (400). ' + GL.file + ' changed on ' + GL.base + ' after it was read. Reload the page and add the entry again.';
+        else if (s === 400 && /already exists/i.test(d)) m = 'Branch already exists (400). Press Create merge request again. Detail: ' + d;
+        else if (s === 400) m = 'GitLab rejected the request (400). Detail: ' + d;
+        else if (s === 409) m = 'Conflict (409). An open merge request already exists for this branch. Detail: ' + d;
+        else if (s === 422) m = 'Unprocessable (422). Detail: ' + d;
+        else if (s === 429) m = 'Rate limited by GitLab (429). Wait a minute, then try again.';
+        else if (s >= 500) m = 'GitLab server error (' + s + '). Try again in a few minutes.';
+        if (stage === 'mr') m = m.replace(/[.\s]*$/, '.') + ' The commit itself is saved on branch ' + branch + ', so you can also open the merge request from GitLab.';
+        setBanner(el.mrStatus, 'err', 'Failed: ' + m + '  (Your Download / Copy options still work without a token.)');
       });
   });
 
