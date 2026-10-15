@@ -112,7 +112,7 @@ const optsJson = JSON.stringify(jsonOptions).replace(/</g, '\\u003c');
 
 // ---------------------------------------------------------------------------
 // HTML template. Single self-contained file; external CDN + Google Font links
-// are permitted (GitHub Pages, not a CSP-restricted artifact).
+// are permitted (static hosting on Cloudflare Pages, not a CSP-restricted artifact).
 // ---------------------------------------------------------------------------
 const html = `<!DOCTYPE html>
 <html lang="en">
@@ -289,7 +289,7 @@ body {
 }
 .icon-btn:hover { border-color: var(--focus); color: var(--focus); }
 .icon-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px var(--focus-ring); }
-.icon-btn.labeled { width: auto; gap: 6px; padding: 0 12px; text-decoration: none; font: 700 13px/1 inherit; white-space: nowrap; }
+.icon-btn.labeled { width: auto; gap: 6px; padding: 0 12px; text-decoration: none; font-family: inherit; font-size: 13px; font-weight: 700; line-height: 1; white-space: nowrap; }
 @media (max-width: 560px) { .icon-btn.labeled .lbl { display: none; } .icon-btn.labeled { width: 44px; padding: 0; } }
 :root[data-theme="dark"] .sun { display: block; }
 :root[data-theme="dark"] .moon { display: none; }
